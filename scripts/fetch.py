@@ -3,6 +3,7 @@ Trae artículos recientes de cada fuente, probando RSS -> scraping -> búsqueda.
 No usa la API de Claude en este paso (eso ahorra costo: solo texto ya
 filtrado llega al modelo, en summarize.py).
 """
+import re
 import time
 import feedparser
 import requests
@@ -14,6 +15,16 @@ HEADERS = {
                   "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
 }
 TIMEOUT = 15
+
+# Reconoce entidades XML válidas para no tocarlas al sanear (&amp; &lt; &gt;
+# &quot; &apos; &#123; &#x1F;), y escapa cualquier otro "&" suelto que
+# aparezca en el feed (causa muy común de "not well-formed" en RSS reales,
+# sobre todo en Substack).
+_BARE_AMPERSAND = re.compile(r"&(?!(?:amp|lt|gt|quot|apos|#\d+|#x[0-9a-fA-F]+);)")
+
+
+def _sanitize_xml(raw_text):
+    return _BARE_AMPERSAND.sub("&amp;", raw_text)
 
 
 def _recent_enough(published_struct, hours=48):
@@ -29,7 +40,16 @@ def try_rss(source, window_hours):
     try:
         feed = feedparser.parse(source["rss"], request_headers=HEADERS)
         if feed.bozo and not feed.entries:
-            return None, f"RSS inválido: {feed.bozo_exception}"
+            # Reintento: traer el texto crudo, sanear ampersands sueltos
+            # (típico en feeds de Substack) y volver a parsear desde texto.
+            try:
+                resp = requests.get(source["rss"], headers=HEADERS, timeout=TIMEOUT)
+                sanitized = _sanitize_xml(resp.text)
+                feed = feedparser.parse(sanitized)
+            except Exception:
+                pass
+            if feed.bozo and not feed.entries:
+                return None, f"RSS inválido: {feed.bozo_exception}"
         items = []
         for e in feed.entries[:15]:
             published = getattr(e, "published_parsed", None)

@@ -23,8 +23,20 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS_DIR = os.path.join(BASE_DIR, "docs")
 
 
+MESES_ES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio",
+            "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+
+
+def fecha_es(d):
+    return f"{d.day} de {MESES_ES[d.month - 1]} de {d.year}"
+
+
 def main():
-    incluir_analistas = "--incluir-analistas" in sys.argv or datetime.date.today().weekday() == 0  # lunes
+    incluir_analistas = (
+        "--incluir-analistas" in sys.argv
+        or os.environ.get("INCLUIR_ANALISTAS", "false").lower() == "true"
+        or datetime.date.today().weekday() == 0  # lunes
+    )
 
     activas = [
         s for s in SOURCES
@@ -52,7 +64,7 @@ def main():
     print("Resumiendo con Claude (1 llamada)...")
     resultado_modelo = summarize(resultados)
 
-    fecha = datetime.date.today().strftime("%d de %B de %Y")
+    fecha = fecha_es(datetime.date.today())
 
     env = Environment(loader=FileSystemLoader(os.path.join(BASE_DIR, "templates")))
     template = env.get_template("report.html")

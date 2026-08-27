@@ -1,0 +1,120 @@
+[
+  {
+    "nombre": "Quincy Institute / Responsible Statecraft",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: OK"
+    ]
+  },
+  {
+    "nombre": "War on the Rocks",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: OK"
+    ]
+  },
+  {
+    "nombre": "RUSI",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
+    "log": [
+      "RSS: RSS inválido: <unknown>:2:1458: not well-formed (invalid token)",
+      "Scraping: scraping sin resultados con el selector configurado",
+      "Búsqueda: error búsqueda: https://links.duckduckgo.com/d.js?q=site%3Arusi.org+commentary&kl=wt-wt&l=wt-wt&p=&s=0&df=w&vqd=4-141468618687049609652446667594299153823&bing_market=wt-WT&ex=-1 202 Ratelimit"
+    ]
+  },
+  {
+    "nombre": "Chatham House",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
+    "log": [
+      "RSS: RSS inválido: <unknown>:69:50: undefined entity",
+      "Scraping: scrape HTTP 403",
+      "Búsqueda: error búsqueda: https://links.duckduckgo.com/d.js?q=site%3Achathamhouse.org+expert+comment&kl=wt-wt&l=wt-wt&p=&s=0&df=w&vqd=4-199397114257604074433865074491743396296&bing_market=wt-WT&ex=-1 202 Ratelimit"
+    ]
+  },
+  {
+    "nombre": "ISW (Institute for the Study of War)",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
+    "log": [
+      "RSS: sin RSS configurado",
+      "Scraping: scrape HTTP 404",
+      "Búsqueda: error búsqueda: https://links.duckduckgo.com/d.js?q=%22Offensive+Campaign+Assessment%22+understandingwar.org&kl=wt-wt&l=wt-wt&p=&s=0&df=w&vqd=4-6441468174648661331994163039036243588&bing_market=wt-WT&ex=-1 202 Ratelimit"
+    ]
+  },
+  {
+    "nombre": "ECFR",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: OK"
+    ]
+  },
+  {
+    "nombre": "Arms Control Association",
+    "metodo": "scraping",
+    "estado": "Cubierta (scraping)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: RSS accesible pero sin entradas dentro de ventana",
+      "Scraping: OK"
+    ]
+  },
+  {
+    "nombre": "Al Jazeera",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: OK"
+    ]
+  },
+  {
+    "nombre": "Global Times",
+    "metodo": "scraping",
+    "estado": "Cubierta (scraping)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: RSS accesible pero sin entradas dentro de ventana",
+      "Scraping: OK"
+    ]
+  },
+  {
+    "nombre": "RT (Russia Today)",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: OK"
+    ]
+  },
+  {
+    "nombre": "TASS",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: OK"
+    ]
+  },
+  {
+    "nombre": "Times of Israel",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
+    "log": [
+      "RSS: RSS inválido: <unknown>:10:43: mismatched tag",
+      "Scraping: scrape HTTP 403",
+      "Búsqueda: error búsqueda: https://links.duckduckgo.com/d.js?q=site%3Atimesofisrael.com&kl=wt-wt&l=wt-wt&p=&s=0&df=w&vqd=4-171015614362231705455105787467858095103&bing_market=wt-WT&ex=-1 202 Ratelimit"
+    ]
+  }
+]

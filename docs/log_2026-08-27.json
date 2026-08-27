@@ -19,13 +19,13 @@
   },
   {
     "nombre": "RUSI",
-    "metodo": "búsqueda",
-    "estado": "Cubierta (búsqueda)",
-    "clase": "estado-cubierta",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
     "log": [
       "RSS: RSS inválido: <unknown>:2:392529: unbound prefix",
       "Scraping: scraping sin resultados con el selector configurado",
-      "Búsqueda: OK"
+      "Búsqueda: búsqueda sin resultados"
     ]
   },
   {
@@ -61,12 +61,11 @@
   },
   {
     "nombre": "Arms Control Association",
-    "metodo": "scraping",
-    "estado": "Cubierta (scraping)",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
     "clase": "estado-cubierta",
     "log": [
-      "RSS: RSS accesible pero sin entradas dentro de ventana",
-      "Scraping: OK"
+      "RSS: OK"
     ]
   },
   {
@@ -108,28 +107,17 @@
   },
   {
     "nombre": "Times of Israel",
-    "metodo": null,
-    "estado": "No disponible — los 3 métodos fallaron",
-    "clase": "estado-no",
+    "metodo": "búsqueda",
+    "estado": "Cubierta (búsqueda)",
+    "clase": "estado-cubierta",
     "log": [
       "RSS: RSS inválido: <unknown>:10:43: mismatched tag",
       "Scraping: scrape HTTP 403",
-      "Búsqueda: búsqueda sin resultados"
+      "Búsqueda: OK"
     ]
   },
   {
     "nombre": "John Mearsheimer (Substack propio)",
-    "metodo": null,
-    "estado": "No disponible — los 3 métodos fallaron",
-    "clase": "estado-no",
-    "log": [
-      "RSS: RSS inválido: <unknown>:2:1326: not well-formed (invalid token)",
-      "Scraping: scrape HTTP 403",
-      "Búsqueda: búsqueda sin resultados"
-    ]
-  },
-  {
-    "nombre": "Douglas Macgregor (Substack propio)",
     "metodo": "búsqueda",
     "estado": "Cubierta (búsqueda)",
     "clase": "estado-cubierta",
@@ -137,6 +125,17 @@
       "RSS: RSS inválido: <unknown>:2:1326: not well-formed (invalid token)",
       "Scraping: scrape HTTP 403",
       "Búsqueda: OK"
+    ]
+  },
+  {
+    "nombre": "Douglas Macgregor (Substack propio)",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
+    "log": [
+      "RSS: RSS inválido: <unknown>:2:1326: not well-formed (invalid token)",
+      "Scraping: scrape HTTP 403",
+      "Búsqueda: búsqueda sin resultados"
     ]
   },
   {
@@ -161,24 +160,22 @@
   },
   {
     "nombre": "RAND",
-    "metodo": null,
-    "estado": "No disponible — los 3 métodos fallaron",
-    "clase": "estado-no",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
     "log": [
-      "RSS: RSS accesible pero sin entradas dentro de ventana",
-      "Scraping: scrape HTTP 404",
-      "Búsqueda: búsqueda sin resultados"
+      "RSS: OK"
     ]
   },
   {
     "nombre": "CSIS",
-    "metodo": null,
-    "estado": "No disponible — los 3 métodos fallaron",
-    "clase": "estado-no",
+    "metodo": "búsqueda",
+    "estado": "Cubierta (búsqueda)",
+    "clase": "estado-cubierta",
     "log": [
       "RSS: RSS inválido: <unknown>:64:72: not well-formed (invalid token)",
       "Scraping: scraping sin resultados con el selector configurado",
-      "Búsqueda: búsqueda sin resultados"
+      "Búsqueda: OK"
     ]
   },
   {
@@ -202,13 +199,13 @@
   },
   {
     "nombre": "Atlantic Council",
-    "metodo": "búsqueda",
-    "estado": "Cubierta (búsqueda)",
-    "clase": "estado-cubierta",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
     "log": [
       "RSS: RSS inválido: <unknown>:19:52: not well-formed (invalid token)",
       "Scraping: scraping sin resultados con el selector configurado",
-      "Búsqueda: OK"
+      "Búsqueda: búsqueda sin resultados"
     ]
   },
   {
@@ -350,13 +347,13 @@
   },
   {
     "nombre": "MP-IDSA",
-    "metodo": "búsqueda",
-    "estado": "Cubierta (búsqueda)",
-    "clase": "estado-cubierta",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
     "log": [
       "RSS: sin RSS configurado",
       "Scraping: scraping sin resultados con el selector configurado",
-      "Búsqueda: OK"
+      "Búsqueda: búsqueda sin resultados"
     ]
   },
   {
@@ -392,7 +389,7 @@
     "estado": "Cubierta (scraping)",
     "clase": "estado-cubierta",
     "log": [
-      "RSS: RSS inválido: <unknown>:2:85366: not well-formed (invalid token)",
+      "RSS: RSS inválido: <unknown>:2:88079: not well-formed (invalid token)",
       "Scraping: OK"
     ]
   },
@@ -422,7 +419,7 @@
     "estado": "Cubierta (scraping)",
     "clase": "estado-cubierta",
     "log": [
-      "RSS: RSS accesible pero sin entradas dentro de ventana",
+      "RSS: RSS inválido: <unknown>:128:2: mismatched tag",
       "Scraping: OK"
     ]
   },
@@ -475,19 +472,18 @@
     "clase": "estado-no",
     "log": [
       "RSS: RSS inválido: <urlopen error [Errno 110] Connection timed out>",
-      "Scraping: error scraping: HTTPSConnectionPool(host='www.ccg.org.cn', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.ccg.org.cn', port=443) at 0x7fa812d02a50>, 'Connection to www.ccg.org.cn timed out. (connect timeout=15)'))",
+      "Scraping: error scraping: HTTPSConnectionPool(host='www.ccg.org.cn', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.ccg.org.cn', port=443) at 0x7f821bc23c50>, 'Connection to www.ccg.org.cn timed out. (connect timeout=15)'))",
       "Búsqueda: búsqueda sin resultados"
     ]
   },
   {
     "nombre": "Observer Research Foundation (ORF)",
-    "metodo": null,
-    "estado": "No disponible — los 3 métodos fallaron",
-    "clase": "estado-no",
+    "metodo": "scraping",
+    "estado": "Cubierta (scraping)",
+    "clase": "estado-cubierta",
     "log": [
       "RSS: RSS inválido: <unknown>:15:18: not well-formed (invalid token)",
-      "Scraping: scrape HTTP 404",
-      "Búsqueda: búsqueda sin resultados"
+      "Scraping: OK"
     ]
   },
   {

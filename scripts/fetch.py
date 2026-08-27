@@ -115,7 +115,11 @@ def fetch_source(source, window_hours=48):
     """
     Devuelve (items, metodo_usado, log_de_intentos).
     metodo_usado es None solo si los 3 métodos fallaron -> fuente realmente rota.
+
+    Si la fuente define window_hours propio (think tanks que no publican a
+    diario), ese valor tiene prioridad sobre el global.
     """
+    window_hours = source.get("window_hours", window_hours)
     log = []
     items, reason = try_rss(source, window_hours)
     log.append(f"RSS: {reason if items is None else 'OK'}")

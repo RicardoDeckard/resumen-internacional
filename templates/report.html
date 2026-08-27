@@ -113,8 +113,12 @@
     margin: 0 0 6pt 0;
   }
 
-  /* Capitular solo en el primer párrafo de la primerísima nota del informe (no en el título) */
-  p.capitular::first-letter {
+  /* Capitular controlada manualmente (no ::first-letter, evita el bug de WeasyPrint
+     donde el flotante se escapa hacia arriba de la página) */
+  p.capitular {
+    overflow: hidden; /* contiene el flotante dentro del párrafo */
+  }
+  p.capitular .cap-letter {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
     float: left;
@@ -178,7 +182,11 @@
       <h3><a href="{{ nota.url }}">{{ nota.titulo }}</a></h3>
       <div class="byline">{{ nota.medio }} · <span class="sesgo">Sesgo: {{ nota.sesgo }}</span></div>
       {% for parrafo in nota.resumen.split('\n') if parrafo.strip() %}
-      <p{% if ns.primera_nota and loop.first %} class="capitular"{% endif %}>{{ parrafo }}</p>
+      {% if ns.primera_nota and loop.first %}
+      <p class="capitular"><span class="cap-letter">{{ parrafo[0] }}</span>{{ parrafo[1:] }}</p>
+      {% else %}
+      <p>{{ parrafo }}</p>
+      {% endif %}
       {% endfor %}
     </div>
     {% set ns.primera_nota = false %}

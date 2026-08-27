@@ -4,7 +4,12 @@ on:
   schedule:
     # 10:00 UTC = 07:00 Argentina (ART, UTC-3)
     - cron: "0 10 * * *"
-  workflow_dispatch: {}   # también se puede disparar manualmente desde GitHub
+  workflow_dispatch:
+    inputs:
+      incluir_analistas:
+        description: "Incluir a Mearsheimer, Macgregor y Reisner en esta corrida"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -32,6 +37,7 @@ jobs:
       - name: Generar el informe del día
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          INCLUIR_ANALISTAS: ${{ github.event.inputs.incluir_analistas }}
         run: python scripts/main.py
 
       - name: Publicar el resultado

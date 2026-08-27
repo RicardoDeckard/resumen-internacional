@@ -113,8 +113,12 @@
     margin: 0 0 6pt 0;
   }
 
-  /* Capitular solo en el primer párrafo de la primerísima nota del informe (no en el título) */
-  p.capitular::first-letter {
+  /* Capitular controlada manualmente (no ::first-letter, evita el bug de WeasyPrint
+     donde el flotante se escapa hacia arriba de la página) */
+  p.capitular {
+    overflow: hidden; /* contiene el flotante dentro del párrafo */
+  }
+  p.capitular .cap-letter {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
     float: left;
@@ -175,28 +179,12 @@
     <h2>Ucrania</h2>
     
     <div class="nota">
-      <h3><a href="https://www.rt.com/russia/644723-west-russia-ukraine-draft/?utm_source=rss&utm_medium=rss&utm_campaign=RSS">Ukraine's real conscription crisis sparks street clashes amid mobilization pressure</a></h3>
-      <div class="byline">RT · <span class="sesgo">Sesgo: Estatal ruso</span></div>
+      <h3><a href="https://www.rt.com/russia/644723-west-russia-ukraine-draft/?utm_source=rss&utm_medium=rss&utm_campaign=RSS">Reclutamiento forzado en Ucrania genera protestas callejeras; movilización de mujeres en debate</a></h3>
+      <div class="byline">RT (estatal ruso) · <span class="sesgo">Sesgo: Estatal ruso</span></div>
       
-      <p class="capitular">Según reportes, Ucrania enfrenta resistencia callejera creciente contra operaciones de reclutamiento forzado en las calles, mientras el gobierno evalúa discretamente la movilización de mujeres. La fuente contrasta esto con rumores sobre un eventual reclutamiento ruso, sugiriendo que la presión de manpower ucraniana es más inmediata y genera conflicto social visible. No se proporcionan cifras de bajas o control territorial.</p>
       
-    </div>
-    
-    
-    <div class="nota">
-      <h3><a href="https://tass.com/world/2178593">Patriot missile shortage in Europe reaches 'beyond critical' level linked to Middle East transfers</a></h3>
-      <div class="byline">TASS · <span class="sesgo">Sesgo: Estatal ruso</span></div>
+      <p class="capitular"><span class="cap-letter">S</span>egún reporte de RT, Kiev está intensificando redadas de hombres en las calles para reclutamiento militar, enfrentando creciente rechazo popular. La fuente señala que Ucrania está probando silenciosamente la movilización de mujeres. El dato relevante es el conflicto interno sobre la capacidad de sostenimiento del esfuerzo militar a través de reclutamiento obligatorio, que revela estrés logístico y social en la capacidad de Ucrania para mantener fuerzas en combate.</p>
       
-      <p>Associated Press reporta que la disponibilidad de misiles Patriot en Europa ha alcanzado niveles críticos, vinculado principalmente a la transferencia de stocks estadounidenses desde Europa hacia Oriente Medio en el contexto de conflicto con Irán. Esta retirada de sistemas defensivos aéreos de corto/medio alcance del teatro europeo tiene implicaciones para la capacidad de defensa aérea ucraniana y OTAN en el este europeo.</p>
-      
-    </div>
-    
-    
-    <div class="nota">
-      <h3><a href="https://www.rt.com/russia/644718-ukraine-hit-200-civilian-vessels/?utm_source=rss&utm_medium=rss&utm_campaign=RSS">Ukraine's attacks on civilian vessels in Black Sea escalate, claims Moscow</a></h3>
-      <div class="byline">RT · <span class="sesgo">Sesgo: Estatal ruso</span></div>
-      
-      <p>Vocera del Ministerio de Relaciones Exteriores ruso alega que Ucrania ha atacado más de 200 buques civiles en 2026, caracterizándolo como escalada que amenaza el comercio regional en el Mar Negro. No hay verificación independiente de estas cifras; la afirmación refleja la narrativa rusa sobre ataques a infraestructura de suministro, pero no cambia evaluaciones sobre control territorial o capacidades militares comprobadas.</p>
       
     </div>
     
@@ -204,54 +192,48 @@
   </div>
   
   <div class="seccion">
-    <h2>Gaza / Medio Oriente</h2>
+    <h2>Oriente Medio - Irán</h2>
     
     <div class="nota">
-      <h3><a href="https://www.aljazeera.com/video/newsfeed/2026/8/27/video-israeli-strike-kills-newlywed-woman-in-south-lebanon?traffic_source=rss">Israeli strikes kill civilians in southern Lebanon amid ongoing operations</a></h3>
-      <div class="byline">Al Jazeera · <span class="sesgo">Sesgo: Gubernamental — Qatar</span></div>
+      <h3><a href="https://tass.com/world/2178595">EE.UU. declina negociaciones con Irán; no planea restaurar memorándum bilateral</a></h3>
+      <div class="byline">TASS (estatal ruso) · <span class="sesgo">Sesgo: Estatal ruso</span></div>
       
-      <p>Reportes de ataques aéreos israelíes contra Nabatieh en el sur del Líbano resultando en muertes civiles. Aunque indica operaciones en curso, no especifica cambios de control territorial, capacidades de defensa aérea libanesa/Hezbolá, o escalada doctrinaria. Relevante solo como indicador de persistencia de operaciones israelíes contra infraestructura y poblaciones en Líbano.</p>
+      
+      <p>Trump declara rechazo a negociaciones con Irán, afirmando que el Estrecho de Ormuz está abierto y los flujos de petróleo circulan normalmente. Reportes indican que EE.UU. no planea restaurar memorándum bilateral con Irán y enfoca en presión económica. Esto marca continuidad de confrontación sin canal diplomático, alterando la trayectoria de la relación bilateral y el equilibrio de poder regional.</p>
+      
       
     </div>
     
     
     <div class="nota">
-      <h3><a href="https://tass.com/world/2178599">Iran Security Council chief links Strait of Hormuz shipping to resolution of Gaza and Lebanon conflicts</a></h3>
-      <div class="byline">TASS · <span class="sesgo">Sesgo: Estatal ruso</span></div>
+      <h3><a href="https://tass.com/world/2178593">Déficit crítico de misiles Patriot en Europa por transferencias al Medio Oriente</a></h3>
+      <div class="byline">TASS (estatal ruso) · <span class="sesgo">Sesgo: Estatal ruso</span></div>
       
-      <p>Mohsen Rezaei establece condición para reanudación de tráfico de buques a través del Estrecho de Hormuz: fin de conflictos en Gaza y Líbano. Señal de que Irán vincula control de rutas marítimas con resolución política de conflictos regionales. No cambia capacidades militares comprobadas pero refleja postura estratégica sobre escalada/desescalada en el Golfo.</p>
       
-    </div>
-    
-    
-    <div class="nota">
-      <h3><a href="https://tass.com/world/2178595">Trump administration rejects negotiations with Iran, asserts Strait of Hormuz remains open</a></h3>
-      <div class="byline">TASS · <span class="sesgo">Sesgo: Estatal ruso</span></div>
+      <p>Según Associated Press citada por TASS, los stocks de misiles Patriot en Europa han alcanzado niveles 'más allá de lo crítico' debido a transferencias de armamento estadounidense desde Europa al Medio Oriente en el contexto de la guerra de EE.UU. contra Irán. Este es un cambio en disponibilidad de defensa aérea que afecta la capacidad operativa de OTAN en teatro europeo y la disuasión ante Rusia.</p>
       
-      <p>Presidente Trump declara que no desea negociaciones con Irán y afirma que el Estrecho de Hormuz está abierto con flujo normal de crudo. Refleja postura de no-diálogo pero sin evidencia de cierre real del estrecho o bloqueo de tráfico. Relevante como decisión política sobre diplomacia, no sobre control de infraestructura.</p>
-      
-    </div>
-    
-    
-  </div>
-  
-  <div class="seccion">
-    <h2>Irán</h2>
-    
-    <div class="nota">
-      <h3><a href="https://tass.com/world/2178591">US maintains economic pressure on Iran without plans to restore intelligence memorandum</a></h3>
-      <div class="byline">TASS · <span class="sesgo">Sesgo: Estatal ruso</span></div>
-      
-      <p>Autoridades estadounidenses priorizan aumento de presión económica sobre Irán sin intención de restaurar acuerdos de inteligencia o control de armamentos (se refiere implícitamente a JCPOA u equivalente). Cierra puerta a desescalada diplomática, reforzando línea de coerción económica como estrategia alternativa a confrontación militar directa.</p>
       
     </div>
     
     
     <div class="nota">
-      <h3><a href="https://tass.com/world/2178571">Iranian parliament speaker blames Trump administration 'miscalculations' for Middle East chaos</a></h3>
-      <div class="byline">TASS · <span class="sesgo">Sesgo: Estatal ruso</span></div>
+      <h3><a href="https://tass.com/world/2178599">Jefe del Consejo de Seguridad de Irán vincula apertura del Estrecho de Ormuz a fin de conflictos en Gaza y Líbano</a></h3>
+      <div class="byline">TASS (estatal ruso) · <span class="sesgo">Sesgo: Estatal ruso</span></div>
       
-      <p>Mohammad Ghalibaf caracteriza decisiones estadounidenses como 'miscalculations' generadoras de caos regional, expresando confianza en que bloqueo económico no tendrá efecto. Reflejo de postura iraní desafiante ante sanciones pero sin evidencia de capacidad militar nueva o cambio en postura de escalada.</p>
+      
+      <p>Mohsen Rezaei, jefe del Consejo de Seguridad Nacional de Irán, condiciona la reanudación del tráfico marítimo en el Estrecho de Ormuz al cese de conflictos en Gaza y Líbano, no solo a negociaciones bilaterales. Esta declaración liga el equilibrio de poder regional y el comercio global a la resolución del conflicto Israel-Gaza-Hezbollah, indicando que Irán utiliza el Estrecho como palanca geopolítica integrada.</p>
+      
+      
+    </div>
+    
+    
+    <div class="nota">
+      <h3><a href="https://tass.com/world/2178571">Portavoz del Parlamento iraní critica 'errores de cálculo' de Trump en Oriente Medio</a></h3>
+      <div class="byline">TASS (estatal ruso) · <span class="sesgo">Sesgo: Estatal ruso</span></div>
+      
+      
+      <p>Mohammad Ghalibaf, portavoz del Parlamento iraní, afirma que los 'errores de cálculo' de Trump han sumido el Oriente Medio en caos y expresa confianza en que el bloqueo económico estadounidense a Irán fracasará. Refleja percepción en Teherán de inestabilidad regional y desafío implícito a la sostenibilidad de la presión económica estadounidense.</p>
+      
       
     </div>
     
@@ -259,22 +241,53 @@
   </div>
   
   <div class="seccion">
-    <h2>OTAN-EEUU</h2>
+    <h2>Gaza / Oriente Medio</h2>
     
     <div class="nota">
-      <h3><a href="https://ecfr.eu/article/talk-is-cheap-europes-defence-promise-meets-the-eu-budget/">European NATO members face budget constraints translating defense pledges into actual spending</a></h3>
-      <div class="byline">ECFR · <span class="sesgo">Sesgo: Atlantista/UE</span></div>
+      <h3><a href="https://www.aljazeera.com/video/newsfeed/2026/8/27/video-israeli-strike-kills-newlywed-woman-in-south-lebanon?traffic_source=rss">Ataque aéreo israelí mata a mujer recién casada en sur del Líbano</a></h3>
+      <div class="byline">Al Jazeera · <span class="sesgo">Sesgo: Gubernamental - Qatar</span></div>
       
-      <p>Tras compromiso en cumbre OTAN de Ankara (julio 2026) de que europeos asuman mayor carga de defensa, la materialización requiere ganador una batalla presupuestaria en negociaciones del ciclo presupuestario de 7 años de la UE contra coaliciones defensoras históricas de gasto agrícola y de cohesión. Señala brecha entre promesa política y capacidad de implementación financiera, impactando velocidad de rearme europeo.</p>
+      
+      <p>Ataque aéreo israelí en Nabatieh, sur del Líbano, causó bajas civiles. El incidente refleja continuidad de operaciones aéreas israelíes contra objetivos en Líbano, consistente con escalada regional Israel-Hezbollah.</p>
+      
       
     </div>
     
     
     <div class="nota">
-      <h3><a href="https://warontherocks.com/the-goldilocks-fallacy-the-undefined-limits-of-koreas-nuclear-role/">South Korea's nuclear role in US alliance faces undefined limits after presidential order to scale back exercises</a></h3>
+      <h3><a href="https://tass.com/politics/2178597">Enviado ruso en ONU insta a Israel a detener 'aventurismo militar'</a></h3>
+      <div class="byline">TASS (estatal ruso) · <span class="sesgo">Sesgo: Estatal ruso</span></div>
+      
+      
+      <p>Vasily Nebenzya, enviado de Rusia ante la ONU, condenó ataques aéreos israelíes en la base de Abu al-Duhur y ataque con drones cerca de Beit Jinn en Siria. Rusia cuestiona el alcance de operaciones aéreas israelíes en Siria, indicando línea roja diplomática sobre expansión de operaciones israelíes en el teatro levantino.</p>
+      
+      
+    </div>
+    
+    
+  </div>
+  
+  <div class="seccion">
+    <h2>OTAN / EE.UU.</h2>
+    
+    <div class="nota">
+      <h3><a href="https://ecfr.eu/article/talk-is-cheap-europes-defence-promise-meets-the-eu-budget/">Promesa europea de defensa choca con presupuesto de la UE; batalla por fondos de defensa</a></h3>
+      <div class="byline">ECFR (think tank UE) · <span class="sesgo">Sesgo: Atlantista (UE)</span></div>
+      
+      
+      <p>Tras la cumbre de la OTAN en Ankara (julio 2026), líderes europeos aceptaron asumir mayor carga defensiva, pero materializar esta promesa requiere librar batalla en el presupuesto de la UE a siete años contra coaliciones que defienden gasto agrícola y de cohesión. Indica brecha entre compromiso político y disponibilidad fiscal para incrementar gasto militar europeo, alterando la trayectoria de capacidad de defensa autónoma de Europa.</p>
+      
+      
+    </div>
+    
+    
+    <div class="nota">
+      <h3><a href="https://warontherocks.com/the-goldilocks-fallacy-the-undefined-limits-of-koreas-nuclear-role/">Corea del Sur: rol nuclear indefinido y 'Falacia Ricitos de Oro' en alianza con EE.UU.</a></h3>
       <div class="byline">War on the Rocks · <span class="sesgo">Sesgo: Atlantista</span></div>
       
-      <p>Presidente estadounidense ordenó reducción de ejercicios conjuntos con Corea del Sur mediante publicación en redes sociales (16 agosto 2026), caracterizando a Corea del Norte como 'unthreatening and respectful'. Esto contradice formalización anterior de directrices sobre rol nuclear de Corea del Sur en operaciones estadounidenses. Refleja cambio doctrinario en alianza US-SK con potencial impacto en postura nuclear y capacidad de respuesta a Corea del Norte.</p>
+      
+      <p>Analista señala que Trump ordenó reducción de ejercicios conjuntos con Corea del Sur calificando a Corea del Norte como 'no amenazante'. Dos años antes, EE.UU.-Corea del Sur habían formalizado el rol de Seúl en operaciones nucleares estadounidenses. El reporte cuestiona los límites indefinidos y la 'falacia Ricitos de Oro' en la arquitectura de seguridad nuclear de la alianza, sugiriendo inestabilidad en los compromisos nucleares estadounidenses en Asia-Pacífico.</p>
+      
       
     </div>
     
@@ -282,13 +295,42 @@
   </div>
   
   <div class="seccion">
-    <h2>Armas nucleares</h2>
+    <h2>Armas nucleares / Defensa aérea</h2>
     
     <div class="nota">
-      <h3><a href="https://warontherocks.com/the-goldilocks-fallacy-the-undefined-limits-of-koreas-nuclear-role/">US reverses course on Korea nuclear alliance exercises, signaling shift in deterrence posture</a></h3>
+      <h3><a href="https://tass.com/world/2178593">Escasez crítica de defensa aérea Patriot en Europa por redeployment a Medio Oriente</a></h3>
+      <div class="byline">TASS (estatal ruso) · <span class="sesgo">Sesgo: Estatal ruso</span></div>
+      
+      
+      <p>Stocks de misiles Patriot en Europa han alcanzado niveles 'beyond critical' (más allá de lo crítico) por transferencias de sistemas a Medio Oriente en contexto de confrontación con Irán. Esto refleja dilema de EE.UU. entre sostener disuasión en dos teatros (Europa contra Rusia, Oriente Medio contra Irán) y la escasez resultante de sistemas de defensa aérea en el flanco europeo de la OTAN.</p>
+      
+      
+    </div>
+    
+    
+  </div>
+  
+  <div class="seccion">
+    <h2>IA / Ciberguerra / ISR</h2>
+    
+    <div class="nota">
+      <h3><a href="https://warontherocks.com/beneath-the-surface-overlooked-cyber-security-threats/">Amenazas de ciberseguridad pasadas por alto: analistas advierten riesgos para seguridad nacional estadounidense</a></h3>
       <div class="byline">War on the Rocks · <span class="sesgo">Sesgo: Atlantista</span></div>
       
-      <p>Tras dos años de formalización de directrices sobre participación surcoreana en operaciones nucleares estadounidenses (incluyendo ejercicios y entrenamiento), una orden presidencial reduce alcance de ejercicios conjuntos. Cambio refleja estrategia de 'umbral bajo' con Corea del Norte, con implicaciones para credibilidad de escudo nuclear extendido estadounidense en la península y señal contradictoria sobre compromiso de defensa.</p>
+      
+      <p>Cuatro expertos identifican amenazas de ciberseguridad a menudo ignoradas por analistas y responsables de política. El artículo señala que la evolución rápida del campo permite que ciertos riesgos se deslicen. No especifica cuáles son las amenazas concretas omitidas, pero indica preocupación sobre capacidades ofensivas no cinéticas subestimadas en evaluaciones de seguridad nacional estadounidense.</p>
+      
+      
+    </div>
+    
+    
+    <div class="nota">
+      <h3><a href="https://www.globaltimes.cn/page/202608/1369217.shtml">China rechaza acusaciones sobre ataques cibernéticos; expone ataques estadounidenses persistentes</a></h3>
+      <div class="byline">Global Times (estatal chino) · <span class="sesgo">Sesgo: Estatal chino</span></div>
+      
+      
+      <p>China rechaza 'difamación cibernética' de EE.UU. y expone ataques APT (Advanced Persistent Threat) estadounidenses persistentes contra infraestructura crítica china. La fuente cuestiona la narrativa estadounidense sobre amenaza cibernética china. Refleja escalada de acusaciones mutuas en ciberguerra sin verificación independiente, parte del conflicto cognitivo entre potencias.</p>
+      
       
     </div>
     
@@ -296,45 +338,53 @@
   </div>
   
   <div class="seccion">
-    <h2>IA geopolítica</h2>
+    <h2>Energía / Infraestructura estratégica</h2>
+    
+    <div class="nota">
+      <h3><a href="https://www.aljazeera.com/news/2026/8/27/trump-executive-order-bans-some-foreign-equipment-in-us-energy-grid?traffic_source=rss">Trump ordena prohibición de equipo extranjero en red eléctrica estadounidense; declara emergencia nacional</a></h3>
+      <div class="byline">Al Jazeera · <span class="sesgo">Sesgo: Gubernamental - Qatar</span></div>
+      
+      
+      <p>Trump firma orden ejecutiva prohibiendo equipo extranjero en infraestructura eléctrica estadounidense bajo declaración de 'emergencia nacional por amenaza extranjera inusual y extraordinaria'. Refleja escalada de proteccionismo de infraestructura crítica y riesgo percibido de vulnerabilidad de cadena de suministro en defensa nacional, alterando arquitectura de integración tecnológica globalizada.</p>
+      
+      
+    </div>
+    
+    
+    <div class="nota">
+      <h3><a href="https://warontherocks.com/from-hormuz-to-the-caucasus-the-new-geography-of-energy-security/">Nuevas geografía de seguridad energética: tuberías Cáucaso-Cuenca Caspiana a Europa</a></h3>
+      <div class="byline">War on the Rocks · <span class="sesgo">Sesgo: Atlantista</span></div>
+      
+      
+      <p>Analista describe emergencia de segunda geografía de seguridad energética paralela al Estrecho de Ormuz: tuberías, ferrocarriles, líneas de poder y corredores de tránsito vinculando Cuenca Caspiana y Cáucaso Sur a Europa. Gobiernos occidentales buscan diversificar suministro de energía más allá de dependencia del Golfo Pérsico, alterando dinámicas de poder en Oriente Medio y Asia Central.</p>
+      
+      
+    </div>
+    
     
   </div>
   
   <div class="seccion">
-    <h2>Otros</h2>
+    <h2>Política doméstica EE.UU. / Comercio</h2>
     
     <div class="nota">
-      <h3><a href="https://www.aljazeera.com/news/2026/8/27/trump-executive-order-bans-some-foreign-equipment-in-us-energy-grid?traffic_source=rss">Trump administration bans foreign equipment from US energy grid citing 'unusual and extraordinary threat'</a></h3>
-      <div class="byline">Al Jazeera · <span class="sesgo">Sesgo: Gubernamental — Qatar</span></div>
+      <h3><a href="https://responsiblestatecraft.org/trump-interest-rates-war/">Intervenciones del Tesoro en mercados financieros señalan preocupación por tasas de interés en contexto de guerra y aranceles</a></h3>
+      <div class="byline">Responsible Statecraft (Quincy Institute) · <span class="sesgo">Sesgo: Realista/restraint</span></div>
       
-      <p>Orden ejecutiva declara emergencia nacional por amenaza 'extranjera inusual y extraordinaria' a la red eléctrica estadounidense, baneando equipos extranjeros específicos. Medida de defensa de infraestructura crítica contra vulnerabilidades de suministro/sabotaje, relevante para resiliencia de capacidades de defensa pero sin especificar qué equipos o países objetivo.</p>
+      
+      <p>El Secretario del Tesoro Scott Bessent realizó dos intervenciones raras en mercados financieros en agosto: compra conjunta de yen con Japón (primera desde crisis asiática 1998) y anuncio de duplicar compra de Treasuries de largo plazo. Ambas reflejan preocupación sobre tasas de interés en contexto de guerra estadounidense (probablemente con Irán) y política arancelaria. Indica estrés fiscal-monetario en sostenimiento de conflicto global simultáneo.</p>
+      
       
     </div>
     
     
     <div class="nota">
-      <h3><a href="https://tass.com/world/2178563">Moldova military parade features NATO equipment during Independence Day celebrations</a></h3>
-      <div class="byline">TASS · <span class="sesgo">Sesgo: Estatal ruso</span></div>
+      <h3><a href="https://www.aljazeera.com/video/newsfeed/2026/8/27/trade-war-between-us-and-canada-could-cost-90000-jobs?traffic_source=rss">Batalla comercial EE.UU.-Canadá: aranceles del 50% podrían costar 90,000 empleos canadienses</a></h3>
+      <div class="byline">Al Jazeera · <span class="sesgo">Sesgo: Gubernamental - Qatar</span></div>
       
-      <p>Moldavia realiza desfile militar mostrando equipamiento OTAN durante celebración de Independencia, con presidenta Sandu justificándolo como demostración de fortalecimiento de defensa. Señal de integración militar moldava con OTAN y demostración pública de capacidad defensiva mejorada, relevante como postura estratégica frente a Rusia pero sin cambio de control territorial o transferencia de armas de nuevo volumen.</p>
       
-    </div>
-    
-    
-    <div class="nota">
-      <h3><a href="https://responsiblestatecraft.org/trump-interest-rates-war/">Treasury interventions in currency and bond markets amid war-driven inflation concerns</a></h3>
-      <div class="byline">Responsible Statecraft · <span class="sesgo">Sesgo: Realista/restraint</span></div>
+      <p>Nuevos aranceles estadounidenses del 50% contra Canadá podrían eliminar casi 90,000 empleos canadienses, según estimaciones. Trump ha escalado tensiones comerciales bilaterales incluyendo orden de renombrar Lago Ontario como 'Lago América'. Indica escalada de proteccionismo con costos económicos reales para aliado norteamericano.</p>
       
-      <p>Secretario del Tesoro Scott Bessent ha intervenido en mercados financieros (compra de yenes con Japón en agosto; anuncio de recompra de Treasuries a largo plazo en agosto). Intervenciones buscan controlar subidas de tasas de interés vinculadas a deficits de guerra y política comercial arancelaria de Trump. Relevante para sostén financiero de operaciones militares sostenidas en múltiples teatros.</p>
-      
-    </div>
-    
-    
-    <div class="nota">
-      <h3><a href="https://www.globaltimes.cn/page/202608/1369217.shtml">China rejects US cyber accusations; claims persistent US APT attacks on critical infrastructure</a></h3>
-      <div class="byline">Global Times · <span class="sesgo">Sesgo: Estatal chino</span></div>
-      
-      <p>China rechaza acusaciones estadounidenses de ataques cibernéticos, contraatacando con alegaciones de ataques APT persistentes estadounidenses contra infraestructura crítica china. Refleja escalada de acusaciones mutuas en guerra cibernética pero sin especificar objetivos, alcance o daño funcional comprobado.</p>
       
     </div>
     
@@ -367,14 +417,14 @@
       
       <tr>
         <td>Chatham House</td>
-        <td>—</td>
-        <td class="estado-no">No disponible — los 3 métodos fallaron</td>
+        <td>búsqueda</td>
+        <td class="estado-cubierta">Cubierta (búsqueda)</td>
       </tr>
       
       <tr>
         <td>ISW (Institute for the Study of War)</td>
-        <td>—</td>
-        <td class="estado-no">No disponible — los 3 métodos fallaron</td>
+        <td>búsqueda</td>
+        <td class="estado-cubierta">Cubierta (búsqueda)</td>
       </tr>
       
       <tr>
@@ -427,8 +477,8 @@
       
       <tr>
         <td>Douglas Macgregor (Substack propio)</td>
-        <td>—</td>
-        <td class="estado-no">No disponible — los 3 métodos fallaron</td>
+        <td>búsqueda</td>
+        <td class="estado-cubierta">Cubierta (búsqueda)</td>
       </tr>
       
       <tr>

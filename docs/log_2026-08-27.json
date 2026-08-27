@@ -25,29 +25,29 @@
     "log": [
       "RSS: RSS inválido: <unknown>:2:1458: not well-formed (invalid token)",
       "Scraping: scraping sin resultados con el selector configurado",
-      "Búsqueda: error búsqueda: https://links.duckduckgo.com/d.js?q=site%3Arusi.org+commentary&kl=wt-wt&l=wt-wt&p=&s=0&df=w&vqd=4-141468985038073009202465054509629517711&bing_market=wt-WT&ex=-1 202 Ratelimit"
+      "Búsqueda: búsqueda sin resultados"
     ]
   },
   {
     "nombre": "Chatham House",
-    "metodo": null,
-    "estado": "No disponible — los 3 métodos fallaron",
-    "clase": "estado-no",
+    "metodo": "búsqueda",
+    "estado": "Cubierta (búsqueda)",
+    "clase": "estado-cubierta",
     "log": [
       "RSS: RSS inválido: <unknown>:69:50: undefined entity",
       "Scraping: scrape HTTP 403",
-      "Búsqueda: error búsqueda: https://links.duckduckgo.com/d.js?q=site%3Achathamhouse.org+expert+comment&kl=wt-wt&l=wt-wt&p=&s=0&df=w&vqd=4-199396182534412689751544652266117125080&bing_market=wt-WT&ex=-1 202 Ratelimit"
+      "Búsqueda: OK"
     ]
   },
   {
     "nombre": "ISW (Institute for the Study of War)",
-    "metodo": null,
-    "estado": "No disponible — los 3 métodos fallaron",
-    "clase": "estado-no",
+    "metodo": "búsqueda",
+    "estado": "Cubierta (búsqueda)",
+    "clase": "estado-cubierta",
     "log": [
       "RSS: sin RSS configurado",
       "Scraping: scrape HTTP 404",
-      "Búsqueda: error búsqueda: https://links.duckduckgo.com/d.js?q=%22Offensive+Campaign+Assessment%22+understandingwar.org&kl=wt-wt&l=wt-wt&p=&s=0&df=w&vqd=4-6441834525671890876819201831510985876&bing_market=wt-WT&ex=-1 202 Ratelimit"
+      "Búsqueda: OK"
     ]
   },
   {
@@ -114,7 +114,7 @@
     "log": [
       "RSS: RSS inválido: <unknown>:10:43: mismatched tag",
       "Scraping: scrape HTTP 403",
-      "Búsqueda: error búsqueda: https://links.duckduckgo.com/d.js?q=site%3Atimesofisrael.com&kl=wt-wt&l=wt-wt&p=&s=0&df=w&vqd=4-171015331676147788741966414169245391343&bing_market=wt-WT&ex=-1 202 Ratelimit"
+      "Búsqueda: búsqueda sin resultados"
     ]
   },
   {
@@ -125,18 +125,18 @@
     "log": [
       "RSS: RSS inválido: <unknown>:2:1326: not well-formed (invalid token)",
       "Scraping: scrape HTTP 403",
-      "Búsqueda: error búsqueda: https://links.duckduckgo.com/d.js?q=site%3Amearsheimer.substack.com&kl=wt-wt&l=wt-wt&p=&s=0&df=w&vqd=4-179250138869285984954450810529526699626&bing_market=wt-WT&ex=-1 202 Ratelimit"
+      "Búsqueda: búsqueda sin resultados"
     ]
   },
   {
     "nombre": "Douglas Macgregor (Substack propio)",
-    "metodo": null,
-    "estado": "No disponible — los 3 métodos fallaron",
-    "clase": "estado-no",
+    "metodo": "búsqueda",
+    "estado": "Cubierta (búsqueda)",
+    "clase": "estado-cubierta",
     "log": [
       "RSS: RSS inválido: <unknown>:2:1326: not well-formed (invalid token)",
       "Scraping: scrape HTTP 403",
-      "Búsqueda: error búsqueda: https://links.duckduckgo.com/d.js?q=site%3Acoloneldoug.substack.com&kl=wt-wt&l=wt-wt&p=&s=0&df=w&vqd=4-323929454606958579793050318447534562175&bing_market=wt-WT&ex=-1 202 Ratelimit"
+      "Búsqueda: OK"
     ]
   },
   {
@@ -147,7 +147,7 @@
     "log": [
       "RSS: sin RSS configurado",
       "Scraping: scrape HTTP 404",
-      "Búsqueda: error búsqueda: https://links.duckduckgo.com/d.js?q=Reisner+Bundesheer+Ukraine+Analyse+truppendienst.bundesheer.at&kl=wt-wt&l=wt-wt&p=&s=0&df=w&vqd=4-20844910855367219023614341254604603647&bing_market=wt-WT&ex=-1 202 Ratelimit"
+      "Búsqueda: búsqueda sin resultados"
     ]
   }
 ]

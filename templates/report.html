@@ -113,8 +113,8 @@
     margin: 0 0 6pt 0;
   }
 
-  /* Capitular solo en la primerísima nota del informe */
-  .capitular::first-letter {
+  /* Capitular solo en el primer párrafo de la primerísima nota del informe (no en el título) */
+  p.capitular::first-letter {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
     float: left;
@@ -174,11 +174,11 @@
   <div class="seccion">
     <h2>{{ seccion.eje }}</h2>
     {% for nota in seccion.notas %}
-    <div class="nota {% if ns.primera_nota %}capitular{% endif %}">
+    <div class="nota">
       <h3><a href="{{ nota.url }}">{{ nota.titulo }}</a></h3>
       <div class="byline">{{ nota.medio }} · <span class="sesgo">Sesgo: {{ nota.sesgo }}</span></div>
       {% for parrafo in nota.resumen.split('\n') if parrafo.strip() %}
-      <p>{{ parrafo }}</p>
+      <p{% if ns.primera_nota and loop.first %} class="capitular"{% endif %}>{{ parrafo }}</p>
       {% endfor %}
     </div>
     {% set ns.primera_nota = false %}

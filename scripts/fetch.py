@@ -79,7 +79,7 @@ def try_search(source):
     if not query:
         return None, "sin query de búsqueda configurada"
     try:
-        from duckduckgo_search import DDGS
+        from ddgs import DDGS
         with DDGS() as ddgs:
             results = list(ddgs.text(query, max_results=8, timelimit="w"))
         items = [{"title": r["title"], "link": r["href"], "summary": r.get("body", "")[:600],

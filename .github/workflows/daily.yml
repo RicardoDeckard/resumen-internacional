@@ -1,0 +1,43 @@
+name: Resumen Internacional diario
+
+on:
+  schedule:
+    # 10:00 UTC = 07:00 Argentina (ART, UTC-3)
+    - cron: "0 10 * * *"
+  workflow_dispatch: {}   # también se puede disparar manualmente desde GitHub
+
+permissions:
+  contents: write
+
+jobs:
+  generar-informe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias del sistema (WeasyPrint necesita estas librerías)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf2.0-0 libffi-dev
+
+      - name: Instalar dependencias de Python
+        run: pip install -r requirements.txt
+
+      - name: Generar el informe del día
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/main.py
+
+      - name: Publicar el resultado
+        run: |
+          git config user.name "resumen-internacional-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add docs/
+          git commit -m "Informe del $(date +'%Y-%m-%d')" || echo "Sin cambios para commitear"
+          git push

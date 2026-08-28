@@ -30,13 +30,13 @@
   },
   {
     "nombre": "Chatham House",
-    "metodo": null,
-    "estado": "No disponible — los 3 métodos fallaron",
-    "clase": "estado-no",
+    "metodo": "búsqueda",
+    "estado": "Cubierta (búsqueda)",
+    "clase": "estado-cubierta",
     "log": [
       "RSS: RSS accesible pero sin entradas dentro de ventana",
       "Scraping: scrape HTTP 403",
-      "Búsqueda: búsqueda sin resultados"
+      "Búsqueda: OK"
     ]
   },
   {
@@ -98,23 +98,54 @@
   },
   {
     "nombre": "TASS",
-    "metodo": "búsqueda",
-    "estado": "Cubierta (búsqueda)",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
     "clase": "estado-cubierta",
     "log": [
-      "RSS: RSS inválido: <urlopen error [Errno 110] Connection timed out>",
-      "Scraping: error scraping: HTTPSConnectionPool(host='tass.com', port=443): Max retries exceeded with url: /world (Caused by ConnectTimeoutError(<HTTPSConnection(host='tass.com', port=443) at 0x7f8b2cdb4d10>, 'Connection to tass.com timed out. (connect timeout=15)'))",
-      "Búsqueda: OK"
+      "RSS: OK"
     ]
   },
   {
     "nombre": "Times of Israel",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
+    "log": [
+      "RSS: RSS inválido: <unknown>:10:43: mismatched tag",
+      "Scraping: scrape HTTP 403",
+      "Búsqueda: búsqueda sin resultados"
+    ]
+  },
+  {
+    "nombre": "John Mearsheimer (Substack propio)",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
+    "log": [
+      "RSS: RSS inválido: <unknown>:2:1326: not well-formed (invalid token)",
+      "Scraping: scrape HTTP 403",
+      "Búsqueda: búsqueda sin resultados"
+    ]
+  },
+  {
+    "nombre": "Douglas Macgregor (Substack propio)",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
+    "log": [
+      "RSS: RSS inválido: <unknown>:2:1326: not well-formed (invalid token)",
+      "Scraping: scrape HTTP 403",
+      "Búsqueda: búsqueda sin resultados"
+    ]
+  },
+  {
+    "nombre": "Cnel. Markus Reisner (TRUPPENDIENST / Clausewitz Network)",
     "metodo": "búsqueda",
     "estado": "Cubierta (búsqueda)",
     "clase": "estado-cubierta",
     "log": [
-      "RSS: RSS inválido: <unknown>:10:43: mismatched tag",
-      "Scraping: scrape HTTP 403",
+      "RSS: sin RSS configurado",
+      "Scraping: scrape HTTP 404",
       "Búsqueda: OK"
     ]
   },
@@ -275,13 +306,13 @@
   },
   {
     "nombre": "Bulletin of Atomic Scientists",
-    "metodo": null,
-    "estado": "No disponible — los 3 métodos fallaron",
-    "clase": "estado-no",
+    "metodo": "búsqueda",
+    "estado": "Cubierta (búsqueda)",
+    "clase": "estado-cubierta",
     "log": [
       "RSS: RSS accesible pero sin entradas dentro de ventana",
       "Scraping: scrape HTTP 403",
-      "Búsqueda: búsqueda sin resultados"
+      "Búsqueda: OK"
     ]
   },
   {
@@ -305,24 +336,24 @@
   },
   {
     "nombre": "IFRI",
-    "metodo": "búsqueda",
-    "estado": "Cubierta (búsqueda)",
-    "clase": "estado-cubierta",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
     "log": [
       "RSS: sin RSS configurado",
       "Scraping: scrape HTTP 404",
-      "Búsqueda: OK"
+      "Búsqueda: búsqueda sin resultados"
     ]
   },
   {
     "nombre": "MP-IDSA",
-    "metodo": "búsqueda",
-    "estado": "Cubierta (búsqueda)",
-    "clase": "estado-cubierta",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
     "log": [
       "RSS: sin RSS configurado",
       "Scraping: scraping sin resultados con el selector configurado",
-      "Búsqueda: OK"
+      "Búsqueda: búsqueda sin resultados"
     ]
   },
   {
@@ -404,13 +435,13 @@
   },
   {
     "nombre": "Belfer Center (Harvard Kennedy School)",
-    "metodo": null,
-    "estado": "No disponible — los 3 métodos fallaron",
-    "clase": "estado-no",
+    "metodo": "búsqueda",
+    "estado": "Cubierta (búsqueda)",
+    "clase": "estado-cubierta",
     "log": [
       "RSS: RSS accesible pero sin entradas dentro de ventana",
       "Scraping: scrape HTTP 404",
-      "Búsqueda: búsqueda sin resultados"
+      "Búsqueda: OK"
     ]
   },
   {
@@ -436,13 +467,13 @@
   },
   {
     "nombre": "Center for China and Globalization (CCG)",
-    "metodo": "búsqueda",
-    "estado": "Cubierta (búsqueda)",
-    "clase": "estado-cubierta",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
     "log": [
       "RSS: RSS inválido: <urlopen error [Errno 110] Connection timed out>",
-      "Scraping: error scraping: HTTPSConnectionPool(host='www.ccg.org.cn', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.ccg.org.cn', port=443) at 0x7f8b2b998150>, 'Connection to www.ccg.org.cn timed out. (connect timeout=15)'))",
-      "Búsqueda: OK"
+      "Scraping: error scraping: HTTPSConnectionPool(host='www.ccg.org.cn', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.ccg.org.cn', port=443) at 0x7ff2321c9d50>, 'Connection to www.ccg.org.cn timed out. (connect timeout=15)'))",
+      "Búsqueda: búsqueda sin resultados"
     ]
   },
   {

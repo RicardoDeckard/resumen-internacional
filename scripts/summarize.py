@@ -70,10 +70,15 @@ def summarize(fetch_results):
 
     message = client.messages.create(
         model=MODEL,
-        max_tokens=8000,
+        max_tokens=16000,
         system=SYSTEM_PROMPT,
         messages=[{"role": "user", "content": user_content}],
     )
+    if message.stop_reason == "max_tokens":
+        raise RuntimeError(
+            "La respuesta de Claude se cortó por límite de tokens (max_tokens=16000). "
+            "Subir el valor de max_tokens en summarize.py."
+        )
     raw = message.content[0].text.strip()
     # por si el modelo envuelve el JSON en ```json ... ```
     if raw.startswith("```"):

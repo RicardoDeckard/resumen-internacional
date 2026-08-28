@@ -30,13 +30,13 @@
   },
   {
     "nombre": "Chatham House",
-    "metodo": "búsqueda",
-    "estado": "Cubierta (búsqueda)",
-    "clase": "estado-cubierta",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
     "log": [
       "RSS: RSS accesible pero sin entradas dentro de ventana",
       "Scraping: scrape HTTP 403",
-      "Búsqueda: OK"
+      "Búsqueda: búsqueda sin resultados"
     ]
   },
   {
@@ -118,24 +118,24 @@
   },
   {
     "nombre": "John Mearsheimer (Substack propio)",
-    "metodo": null,
-    "estado": "No disponible — los 3 métodos fallaron",
-    "clase": "estado-no",
+    "metodo": "búsqueda",
+    "estado": "Cubierta (búsqueda)",
+    "clase": "estado-cubierta",
     "log": [
       "RSS: RSS inválido: <unknown>:2:1326: not well-formed (invalid token)",
       "Scraping: scrape HTTP 403",
-      "Búsqueda: búsqueda sin resultados"
+      "Búsqueda: OK"
     ]
   },
   {
     "nombre": "Douglas Macgregor (Substack propio)",
-    "metodo": null,
-    "estado": "No disponible — los 3 métodos fallaron",
-    "clase": "estado-no",
+    "metodo": "búsqueda",
+    "estado": "Cubierta (búsqueda)",
+    "clase": "estado-cubierta",
     "log": [
       "RSS: RSS inválido: <unknown>:2:1326: not well-formed (invalid token)",
       "Scraping: scrape HTTP 403",
-      "Búsqueda: búsqueda sin resultados"
+      "Búsqueda: OK"
     ]
   },
   {
@@ -169,13 +169,13 @@
   },
   {
     "nombre": "CSIS",
-    "metodo": null,
-    "estado": "No disponible — los 3 métodos fallaron",
-    "clase": "estado-no",
+    "metodo": "búsqueda",
+    "estado": "Cubierta (búsqueda)",
+    "clase": "estado-cubierta",
     "log": [
       "RSS: RSS inválido: <unknown>:64:72: not well-formed (invalid token)",
       "Scraping: scraping sin resultados con el selector configurado",
-      "Búsqueda: búsqueda sin resultados"
+      "Búsqueda: OK"
     ]
   },
   {
@@ -306,13 +306,13 @@
   },
   {
     "nombre": "Bulletin of Atomic Scientists",
-    "metodo": "búsqueda",
-    "estado": "Cubierta (búsqueda)",
-    "clase": "estado-cubierta",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
     "log": [
       "RSS: RSS accesible pero sin entradas dentro de ventana",
       "Scraping: scrape HTTP 403",
-      "Búsqueda: OK"
+      "Búsqueda: búsqueda sin resultados"
     ]
   },
   {
@@ -336,24 +336,24 @@
   },
   {
     "nombre": "IFRI",
-    "metodo": null,
-    "estado": "No disponible — los 3 métodos fallaron",
-    "clase": "estado-no",
+    "metodo": "búsqueda",
+    "estado": "Cubierta (búsqueda)",
+    "clase": "estado-cubierta",
     "log": [
       "RSS: sin RSS configurado",
       "Scraping: scrape HTTP 404",
-      "Búsqueda: búsqueda sin resultados"
+      "Búsqueda: OK"
     ]
   },
   {
     "nombre": "MP-IDSA",
-    "metodo": null,
-    "estado": "No disponible — los 3 métodos fallaron",
-    "clase": "estado-no",
+    "metodo": "búsqueda",
+    "estado": "Cubierta (búsqueda)",
+    "clase": "estado-cubierta",
     "log": [
       "RSS: sin RSS configurado",
       "Scraping: scraping sin resultados con el selector configurado",
-      "Búsqueda: búsqueda sin resultados"
+      "Búsqueda: OK"
     ]
   },
   {
@@ -389,7 +389,7 @@
     "estado": "Cubierta (scraping)",
     "clase": "estado-cubierta",
     "log": [
-      "RSS: RSS inválido: <unknown>:2:88079: not well-formed (invalid token)",
+      "RSS: RSS inválido: <unknown>:2:85366: not well-formed (invalid token)",
       "Scraping: OK"
     ]
   },
@@ -472,7 +472,7 @@
     "clase": "estado-no",
     "log": [
       "RSS: RSS inválido: <urlopen error [Errno 110] Connection timed out>",
-      "Scraping: error scraping: HTTPSConnectionPool(host='www.ccg.org.cn', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.ccg.org.cn', port=443) at 0x7ff2321c9d50>, 'Connection to www.ccg.org.cn timed out. (connect timeout=15)'))",
+      "Scraping: error scraping: HTTPSConnectionPool(host='www.ccg.org.cn', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.ccg.org.cn', port=443) at 0x7fdc862d64d0>, 'Connection to www.ccg.org.cn timed out. (connect timeout=15)'))",
       "Búsqueda: búsqueda sin resultados"
     ]
   },

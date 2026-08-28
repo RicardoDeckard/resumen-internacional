@@ -41,13 +41,13 @@
   },
   {
     "nombre": "ISW (Institute for the Study of War)",
-    "metodo": "búsqueda",
-    "estado": "Cubierta (búsqueda)",
-    "clase": "estado-cubierta",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
     "log": [
       "RSS: sin RSS configurado",
       "Scraping: scrape HTTP 404",
-      "Búsqueda: OK"
+      "Búsqueda: búsqueda sin resultados"
     ]
   },
   {
@@ -117,6 +117,39 @@
     ]
   },
   {
+    "nombre": "John Mearsheimer (Substack propio)",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
+    "log": [
+      "RSS: RSS inválido: <unknown>:2:1326: not well-formed (invalid token)",
+      "Scraping: scrape HTTP 403",
+      "Búsqueda: búsqueda sin resultados"
+    ]
+  },
+  {
+    "nombre": "Douglas Macgregor (Substack propio)",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
+    "log": [
+      "RSS: RSS inválido: <unknown>:2:1326: not well-formed (invalid token)",
+      "Scraping: scrape HTTP 403",
+      "Búsqueda: búsqueda sin resultados"
+    ]
+  },
+  {
+    "nombre": "Cnel. Markus Reisner (TRUPPENDIENST / Clausewitz Network)",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
+    "log": [
+      "RSS: sin RSS configurado",
+      "Scraping: scrape HTTP 404",
+      "Búsqueda: búsqueda sin resultados"
+    ]
+  },
+  {
     "nombre": "The Defence Horizon Journal (TDHJ, red Clausewitz)",
     "metodo": "rss",
     "estado": "Cubierta (rss)",
@@ -145,13 +178,13 @@
   },
   {
     "nombre": "CSIS",
-    "metodo": null,
-    "estado": "No disponible — los 3 métodos fallaron",
-    "clase": "estado-no",
+    "metodo": "búsqueda",
+    "estado": "Cubierta (búsqueda)",
+    "clase": "estado-cubierta",
     "log": [
       "RSS: RSS inválido: <unknown>:64:72: not well-formed (invalid token)",
       "Scraping: scraping sin resultados con el selector configurado",
-      "Búsqueda: búsqueda sin resultados"
+      "Búsqueda: OK"
     ]
   },
   {
@@ -175,13 +208,13 @@
   },
   {
     "nombre": "Atlantic Council",
-    "metodo": "búsqueda",
-    "estado": "Cubierta (búsqueda)",
-    "clase": "estado-cubierta",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
     "log": [
       "RSS: RSS inválido: <unknown>:19:52: not well-formed (invalid token)",
       "Scraping: scraping sin resultados con el selector configurado",
-      "Búsqueda: OK"
+      "Búsqueda: búsqueda sin resultados"
     ]
   },
   {
@@ -380,13 +413,13 @@
   },
   {
     "nombre": "International Crisis Group",
-    "metodo": "búsqueda",
-    "estado": "Cubierta (búsqueda)",
-    "clase": "estado-cubierta",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
     "log": [
       "RSS: RSS accesible pero sin entradas dentro de ventana",
       "Scraping: scrape HTTP 403",
-      "Búsqueda: OK"
+      "Búsqueda: búsqueda sin resultados"
     ]
   },
   {
@@ -432,13 +465,13 @@
   },
   {
     "nombre": "IISS (International Institute for Strategic Studies)",
-    "metodo": null,
-    "estado": "No disponible — los 3 métodos fallaron",
-    "clase": "estado-no",
+    "metodo": "búsqueda",
+    "estado": "Cubierta (búsqueda)",
+    "clase": "estado-cubierta",
     "log": [
       "RSS: RSS accesible pero sin entradas dentro de ventana",
       "Scraping: scrape HTTP 403",
-      "Búsqueda: búsqueda sin resultados"
+      "Búsqueda: OK"
     ]
   },
   {
@@ -448,7 +481,7 @@
     "clase": "estado-no",
     "log": [
       "RSS: RSS inválido: <urlopen error [Errno 110] Connection timed out>",
-      "Scraping: error scraping: HTTPSConnectionPool(host='www.ccg.org.cn', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.ccg.org.cn', port=443) at 0x7fd16aca7510>, 'Connection to www.ccg.org.cn timed out. (connect timeout=15)'))",
+      "Scraping: error scraping: HTTPSConnectionPool(host='www.ccg.org.cn', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.ccg.org.cn', port=443) at 0x7f5ae5bc2bd0>, 'Connection to www.ccg.org.cn timed out. (connect timeout=15)'))",
       "Búsqueda: búsqueda sin resultados"
     ]
   },

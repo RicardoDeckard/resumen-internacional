@@ -15,7 +15,7 @@ from jinja2 import Environment, FileSystemLoader
 from weasyprint import HTML
 
 sys.path.insert(0, os.path.dirname(__file__))
-from sources import SOURCES
+from sources import SOURCES, EJES
 from fetch import fetch_all
 from summarize import summarize
 
@@ -29,6 +29,14 @@ MESES_ES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio",
 
 def fecha_es(d):
     return f"{d.day} de {MESES_ES[d.month - 1]} de {d.year}"
+
+
+def ordenar_secciones(secciones):
+    """Reordena por EJES sin confiar en que el modelo respete el orden pedido
+    en el prompt. Ejes no listados (temas nuevos que surgen del día) quedan
+    al final, en el orden en que el modelo los entregó."""
+    orden = {eje: i for i, eje in enumerate(EJES)}
+    return sorted(secciones, key=lambda s: orden.get(s["eje"], len(EJES)))
 
 
 def main():
@@ -63,6 +71,7 @@ def main():
 
     print("Resumiendo con Claude (1 llamada)...")
     resultado_modelo = summarize(resultados)
+    secciones = ordenar_secciones(resultado_modelo["secciones"])
 
     fecha = fecha_es(datetime.date.today())
 
@@ -70,7 +79,7 @@ def main():
     template = env.get_template("report.html")
     html_out = template.render(
         fecha=fecha,
-        secciones=resultado_modelo["secciones"],
+        secciones=secciones,
         estado_fuentes=estado_fuentes,
     )
 

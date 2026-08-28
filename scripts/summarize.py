@@ -23,6 +23,10 @@ adicional al final, después de todos los listados arriba.
 
 {REGLA_ANTI_CITA}
 
+Todo el texto de salida (títulos y resúmenes) va en español, sin excepción, aunque
+la fuente original esté en inglés, ruso, chino u otro idioma. El nombre del medio
+("medio") es la única excepción: va tal cual, sin traducir.
+
 FORMATO DE SALIDA: JSON estricto, sin texto fuera del JSON, con esta forma exacta:
 {{
   "secciones": [
@@ -30,9 +34,9 @@ FORMATO DE SALIDA: JSON estricto, sin texto fuera del JSON, con esta forma exact
       "eje": "Ucrania",
       "notas": [
         {{
-          "titulo": "string",
+          "titulo": "string, EN ESPAÑOL — traducí el título original (esté en el idioma que esté) a un título periodístico natural en español, no una traducción literal palabra por palabra",
           "url": "string",
-          "medio": "string (nombre del medio o analista)",
+          "medio": "string (nombre del medio o analista, NO lo traduzcas)",
           "sesgo": "string (etiqueta de sesgo, te la doy junto con cada fuente)",
           "resumen": "string, 1-3 párrafos objetivos, sin adoptar el framing de la fuente"
         }}

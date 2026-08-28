@@ -153,6 +153,13 @@ SOURCES = [
         no_window=True,
         video_fallback="Ukraine aktuell (YouTube) — solo título+fecha+link si no hay texto",
     ),
+    dict(
+        name="The Defence Horizon Journal (TDHJ, red Clausewitz)",
+        bias="Académico/independiente (defensa)",
+        window_hours=168, tier="diario", group="analisis",
+        rss="https://tdhj.org/feed/", scrape_url="https://tdhj.org/",
+        scrape_selector="a", search_query="site:tdhj.org",
+    ),
 
     # ---------- NIVEL 2 — SECUNDARIAS (a demanda) ----------
     dict(name="The Diplomat", bias="Atlantista", tier="diario", group="secundaria",
@@ -275,9 +282,14 @@ SOURCES = [
 
 # Ejes temáticos y regla de relevancia estratégica, usados en el prompt de resumen.
 EJES = [
-    "Ucrania", "Gaza / Medio Oriente (incluye Líbano)", "Irán",
+    "Ucrania", "Irán", "Medio Oriente-Israel-Gaza-Siria-Líbano",
     "Taiwán-China", "OTAN-EEUU", "Armas nucleares", "IA geopolítica",
 ]
+# Nota sobre el eje "Medio Oriente-Israel-Gaza-Siria-Líbano": incluye también
+# a Turquía y a países árabes del Golfo cuando la nota trate sobre su relación
+# con la región (p. ej. pactos de defensa, mediación, Siria), aunque
+# Turquía no sea técnicamente Medio Oriente. Los temas de Turquía puramente
+# de OTAN (bases, ejercicios) van al eje OTAN-EEUU.
 
 REGLA_RELEVANCIA = """
 Incluir una nota solo si cumple AL MENOS UNO de estos criterios:

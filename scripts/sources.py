@@ -310,3 +310,22 @@ REGLA_ANTI_CITA = """
 Si una fuente solo replica, resume o cita textualmente lo publicado por otra fuente
 (incluye despachos de agencia reempaquetados por diarios generalistas), no se incluye esa nota.
 """
+
+REGLA_BALANCE = """
+Balance de fuentes por eje (obligatorio, para evitar que un eje quede
+compuesto 100% por un mismo bloque de sesgo cuando había alternativa
+disponible):
+
+- Eje "Ucrania": si en el material crudo hay AL MENOS UNA nota disponible de
+  una fuente rusa (RT, TASS, Sputnik/RIA Novosti, Valdai Club, RIAC) que
+  cumpla REGLA_RELEVANCIA, incluila en la sección, aunque el ranking de
+  relevancia editorial la ubique por debajo de otras notas atlantistas
+  candidatas. Es la prioridad más alta de esta regla.
+- Mismo criterio, con prioridad menor: eje "Irán" frente a Mehr News Agency,
+  y eje "OTAN-EEUU" frente a fuentes rusas o chinas (TASS, RT, Sputnik,
+  Global Times, Xinhua).
+
+Esta regla NUNCA baja el piso de calidad: la nota rusa/iraní/china igual tiene
+que cumplir REGLA_RELEVANCIA. Si ese día ninguna nota de esas fuentes la
+cumple, no se fuerza nada y la sección queda como corresponda.
+"""

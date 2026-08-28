@@ -19,13 +19,13 @@
   },
   {
     "nombre": "RUSI",
-    "metodo": "búsqueda",
-    "estado": "Cubierta (búsqueda)",
-    "clase": "estado-cubierta",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
     "log": [
       "RSS: RSS inválido: <unknown>:2:392529: unbound prefix",
       "Scraping: scraping sin resultados con el selector configurado",
-      "Búsqueda: OK"
+      "Búsqueda: búsqueda sin resultados"
     ]
   },
   {
@@ -98,11 +98,13 @@
   },
   {
     "nombre": "TASS",
-    "metodo": "rss",
-    "estado": "Cubierta (rss)",
+    "metodo": "búsqueda",
+    "estado": "Cubierta (búsqueda)",
     "clase": "estado-cubierta",
     "log": [
-      "RSS: OK"
+      "RSS: RSS inválido: <urlopen error [Errno 110] Connection timed out>",
+      "Scraping: error scraping: HTTPSConnectionPool(host='tass.com', port=443): Max retries exceeded with url: /world (Caused by ConnectTimeoutError(<HTTPSConnection(host='tass.com', port=443) at 0x7f8b2cdb4d10>, 'Connection to tass.com timed out. (connect timeout=15)'))",
+      "Búsqueda: OK"
     ]
   },
   {
@@ -136,13 +138,13 @@
   },
   {
     "nombre": "CSIS",
-    "metodo": "búsqueda",
-    "estado": "Cubierta (búsqueda)",
-    "clase": "estado-cubierta",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
     "log": [
       "RSS: RSS inválido: <unknown>:64:72: not well-formed (invalid token)",
       "Scraping: scraping sin resultados con el selector configurado",
-      "Búsqueda: OK"
+      "Búsqueda: búsqueda sin resultados"
     ]
   },
   {
@@ -303,13 +305,13 @@
   },
   {
     "nombre": "IFRI",
-    "metodo": null,
-    "estado": "No disponible — los 3 métodos fallaron",
-    "clase": "estado-no",
+    "metodo": "búsqueda",
+    "estado": "Cubierta (búsqueda)",
+    "clase": "estado-cubierta",
     "log": [
       "RSS: sin RSS configurado",
       "Scraping: scrape HTTP 404",
-      "Búsqueda: búsqueda sin resultados"
+      "Búsqueda: OK"
     ]
   },
   {
@@ -356,7 +358,7 @@
     "estado": "Cubierta (scraping)",
     "clase": "estado-cubierta",
     "log": [
-      "RSS: RSS inválido: <unknown>:2:85366: not well-formed (invalid token)",
+      "RSS: RSS inválido: <unknown>:2:88079: not well-formed (invalid token)",
       "Scraping: OK"
     ]
   },
@@ -371,13 +373,13 @@
   },
   {
     "nombre": "International Crisis Group",
-    "metodo": "búsqueda",
-    "estado": "Cubierta (búsqueda)",
-    "clase": "estado-cubierta",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
     "log": [
       "RSS: RSS accesible pero sin entradas dentro de ventana",
       "Scraping: scrape HTTP 403",
-      "Búsqueda: OK"
+      "Búsqueda: búsqueda sin resultados"
     ]
   },
   {
@@ -402,13 +404,13 @@
   },
   {
     "nombre": "Belfer Center (Harvard Kennedy School)",
-    "metodo": "búsqueda",
-    "estado": "Cubierta (búsqueda)",
-    "clase": "estado-cubierta",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
     "log": [
       "RSS: RSS accesible pero sin entradas dentro de ventana",
       "Scraping: scrape HTTP 404",
-      "Búsqueda: OK"
+      "Búsqueda: búsqueda sin resultados"
     ]
   },
   {
@@ -434,13 +436,13 @@
   },
   {
     "nombre": "Center for China and Globalization (CCG)",
-    "metodo": null,
-    "estado": "No disponible — los 3 métodos fallaron",
-    "clase": "estado-no",
+    "metodo": "búsqueda",
+    "estado": "Cubierta (búsqueda)",
+    "clase": "estado-cubierta",
     "log": [
       "RSS: RSS inválido: <urlopen error [Errno 110] Connection timed out>",
-      "Scraping: error scraping: HTTPSConnectionPool(host='www.ccg.org.cn', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.ccg.org.cn', port=443) at 0x7fd36b948e10>, 'Connection to www.ccg.org.cn timed out. (connect timeout=15)'))",
-      "Búsqueda: búsqueda sin resultados"
+      "Scraping: error scraping: HTTPSConnectionPool(host='www.ccg.org.cn', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.ccg.org.cn', port=443) at 0x7f8b2b998150>, 'Connection to www.ccg.org.cn timed out. (connect timeout=15)'))",
+      "Búsqueda: OK"
     ]
   },
   {

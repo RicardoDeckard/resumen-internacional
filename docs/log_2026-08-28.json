@@ -30,24 +30,24 @@
   },
   {
     "nombre": "Chatham House",
-    "metodo": null,
-    "estado": "No disponible — los 3 métodos fallaron",
-    "clase": "estado-no",
+    "metodo": "búsqueda",
+    "estado": "Cubierta (búsqueda)",
+    "clase": "estado-cubierta",
     "log": [
       "RSS: RSS accesible pero sin entradas dentro de ventana",
       "Scraping: scrape HTTP 403",
-      "Búsqueda: búsqueda sin resultados"
+      "Búsqueda: OK"
     ]
   },
   {
     "nombre": "ISW (Institute for the Study of War)",
-    "metodo": null,
-    "estado": "No disponible — los 3 métodos fallaron",
-    "clase": "estado-no",
+    "metodo": "búsqueda",
+    "estado": "Cubierta (búsqueda)",
+    "clase": "estado-cubierta",
     "log": [
       "RSS: sin RSS configurado",
       "Scraping: scrape HTTP 404",
-      "Búsqueda: búsqueda sin resultados"
+      "Búsqueda: OK"
     ]
   },
   {
@@ -118,35 +118,44 @@
   },
   {
     "nombre": "John Mearsheimer (Substack propio)",
-    "metodo": "búsqueda",
-    "estado": "Cubierta (búsqueda)",
-    "clase": "estado-cubierta",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
     "log": [
       "RSS: RSS inválido: <unknown>:2:1326: not well-formed (invalid token)",
       "Scraping: scrape HTTP 403",
-      "Búsqueda: OK"
+      "Búsqueda: búsqueda sin resultados"
     ]
   },
   {
     "nombre": "Douglas Macgregor (Substack propio)",
-    "metodo": "búsqueda",
-    "estado": "Cubierta (búsqueda)",
-    "clase": "estado-cubierta",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
     "log": [
       "RSS: RSS inválido: <unknown>:2:1326: not well-formed (invalid token)",
       "Scraping: scrape HTTP 403",
-      "Búsqueda: OK"
+      "Búsqueda: búsqueda sin resultados"
     ]
   },
   {
     "nombre": "Cnel. Markus Reisner (TRUPPENDIENST / Clausewitz Network)",
-    "metodo": "búsqueda",
-    "estado": "Cubierta (búsqueda)",
-    "clase": "estado-cubierta",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
     "log": [
       "RSS: sin RSS configurado",
       "Scraping: scrape HTTP 404",
-      "Búsqueda: OK"
+      "Búsqueda: búsqueda sin resultados"
+    ]
+  },
+  {
+    "nombre": "The Defence Horizon Journal (TDHJ, red Clausewitz)",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: OK"
     ]
   },
   {
@@ -336,24 +345,24 @@
   },
   {
     "nombre": "IFRI",
-    "metodo": "búsqueda",
-    "estado": "Cubierta (búsqueda)",
-    "clase": "estado-cubierta",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
     "log": [
       "RSS: sin RSS configurado",
       "Scraping: scrape HTTP 404",
-      "Búsqueda: OK"
+      "Búsqueda: búsqueda sin resultados"
     ]
   },
   {
     "nombre": "MP-IDSA",
-    "metodo": "búsqueda",
-    "estado": "Cubierta (búsqueda)",
-    "clase": "estado-cubierta",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
     "log": [
       "RSS: sin RSS configurado",
       "Scraping: scraping sin resultados con el selector configurado",
-      "Búsqueda: OK"
+      "Búsqueda: búsqueda sin resultados"
     ]
   },
   {
@@ -435,13 +444,13 @@
   },
   {
     "nombre": "Belfer Center (Harvard Kennedy School)",
-    "metodo": "búsqueda",
-    "estado": "Cubierta (búsqueda)",
-    "clase": "estado-cubierta",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
     "log": [
       "RSS: RSS accesible pero sin entradas dentro de ventana",
       "Scraping: scrape HTTP 404",
-      "Búsqueda: OK"
+      "Búsqueda: búsqueda sin resultados"
     ]
   },
   {
@@ -456,13 +465,13 @@
   },
   {
     "nombre": "IISS (International Institute for Strategic Studies)",
-    "metodo": null,
-    "estado": "No disponible — los 3 métodos fallaron",
-    "clase": "estado-no",
+    "metodo": "búsqueda",
+    "estado": "Cubierta (búsqueda)",
+    "clase": "estado-cubierta",
     "log": [
       "RSS: RSS accesible pero sin entradas dentro de ventana",
       "Scraping: scrape HTTP 403",
-      "Búsqueda: búsqueda sin resultados"
+      "Búsqueda: OK"
     ]
   },
   {
@@ -472,7 +481,7 @@
     "clase": "estado-no",
     "log": [
       "RSS: RSS inválido: <urlopen error [Errno 110] Connection timed out>",
-      "Scraping: error scraping: HTTPSConnectionPool(host='www.ccg.org.cn', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.ccg.org.cn', port=443) at 0x7fdc862d64d0>, 'Connection to www.ccg.org.cn timed out. (connect timeout=15)'))",
+      "Scraping: error scraping: HTTPSConnectionPool(host='www.ccg.org.cn', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.ccg.org.cn', port=443) at 0x7f736e5c8650>, 'Connection to www.ccg.org.cn timed out. (connect timeout=15)'))",
       "Búsqueda: búsqueda sin resultados"
     ]
   },

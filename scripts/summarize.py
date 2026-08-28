@@ -6,7 +6,7 @@ solo lee texto ya filtrado y lo redacta/agrupa.
 import os
 import json
 from anthropic import Anthropic
-from sources import EJES, REGLA_RELEVANCIA, REGLA_ANTI_CITA
+from sources import EJES, REGLA_RELEVANCIA, REGLA_ANTI_CITA, REGLA_BALANCE
 
 MODEL = "claude-haiku-4-5-20251001"
 
@@ -22,6 +22,8 @@ adicional al final, después de todos los listados arriba.
 {REGLA_RELEVANCIA}
 
 {REGLA_ANTI_CITA}
+
+{REGLA_BALANCE}
 
 Todo el texto de salida (títulos y resúmenes) va en español, sin excepción, aunque
 la fuente original esté en inglés, ruso, chino u otro idioma. El nombre del medio

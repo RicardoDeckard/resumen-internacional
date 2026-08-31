@@ -1,0 +1,507 @@
+[
+  {
+    "nombre": "Quincy Institute / Responsible Statecraft",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: OK"
+    ]
+  },
+  {
+    "nombre": "War on the Rocks",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: OK"
+    ]
+  },
+  {
+    "nombre": "RUSI",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
+    "log": [
+      "RSS: RSS inválido: <unknown>:2:392529: unbound prefix",
+      "Scraping: scraping sin resultados con el selector configurado",
+      "Búsqueda: búsqueda sin resultados"
+    ]
+  },
+  {
+    "nombre": "Chatham House",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
+    "log": [
+      "RSS: RSS accesible pero sin entradas dentro de ventana",
+      "Scraping: scrape HTTP 403",
+      "Búsqueda: búsqueda sin resultados"
+    ]
+  },
+  {
+    "nombre": "ISW (Institute for the Study of War)",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
+    "log": [
+      "RSS: sin RSS configurado",
+      "Scraping: scrape HTTP 404",
+      "Búsqueda: búsqueda sin resultados"
+    ]
+  },
+  {
+    "nombre": "ECFR",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: OK"
+    ]
+  },
+  {
+    "nombre": "Arms Control Association",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: OK"
+    ]
+  },
+  {
+    "nombre": "Al Jazeera",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: OK"
+    ]
+  },
+  {
+    "nombre": "Global Times",
+    "metodo": "scraping",
+    "estado": "Cubierta (scraping)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: RSS accesible pero sin entradas dentro de ventana",
+      "Scraping: OK"
+    ]
+  },
+  {
+    "nombre": "RT (Russia Today)",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: OK"
+    ]
+  },
+  {
+    "nombre": "TASS",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: OK"
+    ]
+  },
+  {
+    "nombre": "Times of Israel",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
+    "log": [
+      "RSS: RSS inválido: <unknown>:10:43: mismatched tag",
+      "Scraping: scrape HTTP 403",
+      "Búsqueda: búsqueda sin resultados"
+    ]
+  },
+  {
+    "nombre": "John Mearsheimer (Substack propio)",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
+    "log": [
+      "RSS: RSS inválido: <unknown>:2:1326: not well-formed (invalid token)",
+      "Scraping: scrape HTTP 403",
+      "Búsqueda: búsqueda sin resultados"
+    ]
+  },
+  {
+    "nombre": "Douglas Macgregor (Substack propio)",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
+    "log": [
+      "RSS: RSS inválido: <unknown>:2:1326: not well-formed (invalid token)",
+      "Scraping: scrape HTTP 403",
+      "Búsqueda: búsqueda sin resultados"
+    ]
+  },
+  {
+    "nombre": "Cnel. Markus Reisner (TRUPPENDIENST / Clausewitz Network)",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
+    "log": [
+      "RSS: sin RSS configurado",
+      "Scraping: scrape HTTP 404",
+      "Búsqueda: búsqueda sin resultados"
+    ]
+  },
+  {
+    "nombre": "The Defence Horizon Journal (TDHJ, red Clausewitz)",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: OK"
+    ]
+  },
+  {
+    "nombre": "The Diplomat",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: OK"
+    ]
+  },
+  {
+    "nombre": "RAND",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: OK"
+    ]
+  },
+  {
+    "nombre": "CSIS",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
+    "log": [
+      "RSS: RSS inválido: <unknown>:64:72: not well-formed (invalid token)",
+      "Scraping: scraping sin resultados con el selector configurado",
+      "Búsqueda: búsqueda sin resultados"
+    ]
+  },
+  {
+    "nombre": "Carnegie Endowment",
+    "metodo": "scraping",
+    "estado": "Cubierta (scraping)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: RSS accesible pero sin entradas dentro de ventana",
+      "Scraping: OK"
+    ]
+  },
+  {
+    "nombre": "Foreign Affairs",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: OK"
+    ]
+  },
+  {
+    "nombre": "Atlantic Council",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
+    "log": [
+      "RSS: RSS inválido: <unknown>:19:52: not well-formed (invalid token)",
+      "Scraping: scraping sin resultados con el selector configurado",
+      "Búsqueda: búsqueda sin resultados"
+    ]
+  },
+  {
+    "nombre": "HCSS",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: OK"
+    ]
+  },
+  {
+    "nombre": "Bruegel",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
+    "log": [
+      "RSS: RSS inválido: <unknown>:2:1326: not well-formed (invalid token)",
+      "Scraping: scrape HTTP 403",
+      "Búsqueda: búsqueda sin resultados"
+    ]
+  },
+  {
+    "nombre": "Valdai Club",
+    "metodo": "scraping",
+    "estado": "Cubierta (scraping)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: RSS inválido: <unknown>:7:2: mismatched tag",
+      "Scraping: OK"
+    ]
+  },
+  {
+    "nombre": "RIAC",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
+    "log": [
+      "RSS: RSS inválido: <unknown>:7:2: mismatched tag",
+      "Scraping: error scraping: HTTPSConnectionPool(host='russiancouncil.ru', port=443): Read timed out. (read timeout=15)",
+      "Búsqueda: búsqueda sin resultados"
+    ]
+  },
+  {
+    "nombre": "Xinhua",
+    "metodo": "scraping",
+    "estado": "Cubierta (scraping)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: RSS accesible pero sin entradas dentro de ventana",
+      "Scraping: OK"
+    ]
+  },
+  {
+    "nombre": "Mehr News Agency",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: OK"
+    ]
+  },
+  {
+    "nombre": "Al-Monitor",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: OK"
+    ]
+  },
+  {
+    "nombre": "Middle East Eye",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: OK"
+    ]
+  },
+  {
+    "nombre": "Jerusalem Post",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: OK"
+    ]
+  },
+  {
+    "nombre": "Haaretz",
+    "metodo": "scraping",
+    "estado": "Cubierta (scraping)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: sin RSS configurado",
+      "Scraping: OK"
+    ]
+  },
+  {
+    "nombre": "Bulletin of Atomic Scientists",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
+    "log": [
+      "RSS: RSS accesible pero sin entradas dentro de ventana",
+      "Scraping: scrape HTTP 403",
+      "Búsqueda: búsqueda sin resultados"
+    ]
+  },
+  {
+    "nombre": "CSET Georgetown",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: OK"
+    ]
+  },
+  {
+    "nombre": "SWP Berlin",
+    "metodo": "scraping",
+    "estado": "Cubierta (scraping)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: RSS inválido: <unknown>:13:4: mismatched tag",
+      "Scraping: OK"
+    ]
+  },
+  {
+    "nombre": "IFRI",
+    "metodo": "búsqueda",
+    "estado": "Cubierta (búsqueda)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: sin RSS configurado",
+      "Scraping: scrape HTTP 404",
+      "Búsqueda: OK"
+    ]
+  },
+  {
+    "nombre": "MP-IDSA",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
+    "log": [
+      "RSS: sin RSS configurado",
+      "Scraping: scraping sin resultados con el selector configurado",
+      "Búsqueda: búsqueda sin resultados"
+    ]
+  },
+  {
+    "nombre": "The New York Times (World)",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: OK"
+    ]
+  },
+  {
+    "nombre": "The Washington Post (World)",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: OK"
+    ]
+  },
+  {
+    "nombre": "The Guardian (World)",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: OK"
+    ]
+  },
+  {
+    "nombre": "Kyiv Independent",
+    "metodo": "scraping",
+    "estado": "Cubierta (scraping)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: RSS inválido: <unknown>:2:85366: not well-formed (invalid token)",
+      "Scraping: OK"
+    ]
+  },
+  {
+    "nombre": "Sputnik / RIA Novosti",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: OK"
+    ]
+  },
+  {
+    "nombre": "International Crisis Group",
+    "metodo": "rss",
+    "estado": "Cubierta (rss)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: OK"
+    ]
+  },
+  {
+    "nombre": "Brookings Institution",
+    "metodo": "scraping",
+    "estado": "Cubierta (scraping)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: RSS inválido: <unknown>:128:2: mismatched tag",
+      "Scraping: OK"
+    ]
+  },
+  {
+    "nombre": "Council on Foreign Relations (CFR)",
+    "metodo": "scraping",
+    "estado": "Cubierta (scraping)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: RSS inválido: <unknown>:2:259580: not well-formed (invalid token)",
+      "Scraping: OK"
+    ]
+  },
+  {
+    "nombre": "Belfer Center (Harvard Kennedy School)",
+    "metodo": "búsqueda",
+    "estado": "Cubierta (búsqueda)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: RSS accesible pero sin entradas dentro de ventana",
+      "Scraping: scrape HTTP 404",
+      "Búsqueda: OK"
+    ]
+  },
+  {
+    "nombre": "Lowy Institute",
+    "metodo": "scraping",
+    "estado": "Cubierta (scraping)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: RSS inválido: <unknown>:2:9261: not well-formed (invalid token)",
+      "Scraping: OK"
+    ]
+  },
+  {
+    "nombre": "IISS (International Institute for Strategic Studies)",
+    "metodo": "búsqueda",
+    "estado": "Cubierta (búsqueda)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: RSS accesible pero sin entradas dentro de ventana",
+      "Scraping: scrape HTTP 403",
+      "Búsqueda: OK"
+    ]
+  },
+  {
+    "nombre": "Center for China and Globalization (CCG)",
+    "metodo": null,
+    "estado": "No disponible — los 3 métodos fallaron",
+    "clase": "estado-no",
+    "log": [
+      "RSS: RSS inválido: <urlopen error [Errno 110] Connection timed out>",
+      "Scraping: error scraping: HTTPSConnectionPool(host='www.ccg.org.cn', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.ccg.org.cn', port=443) at 0x7ff1e1dd7ed0>, 'Connection to www.ccg.org.cn timed out. (connect timeout=15)'))",
+      "Búsqueda: búsqueda sin resultados"
+    ]
+  },
+  {
+    "nombre": "Observer Research Foundation (ORF)",
+    "metodo": "scraping",
+    "estado": "Cubierta (scraping)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: RSS inválido: <unknown>:15:18: not well-formed (invalid token)",
+      "Scraping: OK"
+    ]
+  },
+  {
+    "nombre": "Institute for Security Studies (ISS Africa)",
+    "metodo": "scraping",
+    "estado": "Cubierta (scraping)",
+    "clase": "estado-cubierta",
+    "log": [
+      "RSS: RSS inválido: <unknown>:16:2: mismatched tag",
+      "Scraping: OK"
+    ]
+  }
+]

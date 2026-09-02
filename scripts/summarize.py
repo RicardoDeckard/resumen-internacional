@@ -9,6 +9,7 @@ from anthropic import Anthropic
 from sources import EJES, REGLA_RELEVANCIA, REGLA_ANTI_CITA
 
 MODEL = "claude-haiku-4-5-20251001"
+MAX_TOKENS = 16000
 
 SYSTEM_PROMPT = f"""Sos el editor de "RESUMEN INTERNACIONAL", informe diario de relaciones
 internacionales para Ricardo Narvaez, funcionario de una fiscalía federal argentina.
@@ -70,7 +71,7 @@ def summarize(fetch_results):
 
     message = client.messages.create(
         model=MODEL,
-        max_tokens=8000,
+        max_tokens=MAX_TOKENS,
         system=SYSTEM_PROMPT,
         messages=[{"role": "user", "content": user_content}],
     )
@@ -81,8 +82,40 @@ def summarize(fetch_results):
         raw = raw.split("\n", 1)[1] if "\n" in raw else raw
         if raw.lower().startswith("json"):
             raw = raw.split("\n", 1)[1]
-    resultado = json.loads(raw)
+
+    if message.stop_reason == "max_tokens":
+        print(f"[summarize] ADVERTENCIA: la respuesta se cortó por max_tokens "
+              f"({MAX_TOKENS}). El informe de hoy va a venir incompleto. "
+              f"Subir MAX_TOKENS en summarize.py o reducir fuentes activas.")
+
+    try:
+        resultado = json.loads(raw)
+    except json.JSONDecodeError as e:
+        print(f"[summarize] JSON truncado/inválido ({e}). Intentando rescate parcial...")
+        resultado = _rescatar_json_truncado(raw)
+        if resultado is None:
+            raise
+
     return _sanear(resultado)
+
+
+def _rescatar_json_truncado(raw):
+    """Si la respuesta vino cortada a mitad de un string/objeto (típicamente por
+    max_tokens), intenta salvar todas las notas que sí llegaron completas,
+    cerrando el JSON en el último punto válido en vez de perder todo el informe."""
+    cierres_posibles = ["", "}", "]}", "]}]", "]}]}", "]}]}]", "]}]}]}"]
+    posiciones_cierre = [i for i, c in enumerate(raw) if c == "}"]
+    for pos in reversed(posiciones_cierre):
+        candidato = raw[:pos + 1].rstrip().rstrip(",")
+        for cierre in cierres_posibles:
+            try:
+                resultado = json.loads(candidato + cierre)
+                if "secciones" in resultado:
+                    print(f"[summarize] rescate OK, se conservó contenido hasta char {pos}")
+                    return resultado
+            except json.JSONDecodeError:
+                continue
+    return None
 
 
 REQUIRED_KEYS = ("titulo", "url", "medio", "sesgo", "resumen")

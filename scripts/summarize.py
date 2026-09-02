@@ -6,28 +6,19 @@ solo lee texto ya filtrado y lo redacta/agrupa.
 import os
 import json
 from anthropic import Anthropic
-from sources import EJES, REGLA_RELEVANCIA, REGLA_ANTI_CITA, REGLA_BALANCE
+from sources import EJES, REGLA_RELEVANCIA, REGLA_ANTI_CITA
 
 MODEL = "claude-haiku-4-5-20251001"
 
 SYSTEM_PROMPT = f"""Sos el editor de "RESUMEN INTERNACIONAL", informe diario de relaciones
 internacionales para Ricardo Narvaez, funcionario de una fiscalía federal argentina.
 
-Ejes temáticos fijos, EN ESTE ORDEN EXACTO — no reordenes por relevancia editorial
-del día, generá las secciones "secciones" en esta secuencia siempre que haya
-material para cada una: {", ".join(EJES)}. Si surge un tema de trascendencia
-comparable que no encaja en ninguno de estos ejes, agregalo como sección
-adicional al final, después de todos los listados arriba.
+Ejes temáticos (en este orden de aparición): {", ".join(EJES)}, y otros ejes de
+trascendencia comparable que surjan del material.
 
 {REGLA_RELEVANCIA}
 
 {REGLA_ANTI_CITA}
-
-{REGLA_BALANCE}
-
-Todo el texto de salida (títulos y resúmenes) va en español, sin excepción, aunque
-la fuente original esté en inglés, ruso, chino u otro idioma. El nombre del medio
-("medio") es la única excepción: va tal cual, sin traducir.
 
 FORMATO DE SALIDA: JSON estricto, sin texto fuera del JSON, con esta forma exacta:
 {{
@@ -36,9 +27,9 @@ FORMATO DE SALIDA: JSON estricto, sin texto fuera del JSON, con esta forma exact
       "eje": "Ucrania",
       "notas": [
         {{
-          "titulo": "string, EN ESPAÑOL — traducí el título original (esté en el idioma que esté) a un título periodístico natural en español, no una traducción literal palabra por palabra",
+          "titulo": "string",
           "url": "string",
-          "medio": "string (nombre del medio o analista, NO lo traduzcas)",
+          "medio": "string (nombre del medio o analista)",
           "sesgo": "string (etiqueta de sesgo, te la doy junto con cada fuente)",
           "resumen": "string, 1-3 párrafos objetivos, sin adoptar el framing de la fuente"
         }}
@@ -79,15 +70,10 @@ def summarize(fetch_results):
 
     message = client.messages.create(
         model=MODEL,
-        max_tokens=16000,
+        max_tokens=8000,
         system=SYSTEM_PROMPT,
         messages=[{"role": "user", "content": user_content}],
     )
-    if message.stop_reason == "max_tokens":
-        raise RuntimeError(
-            "La respuesta de Claude se cortó por límite de tokens (max_tokens=16000). "
-            "Subir el valor de max_tokens en summarize.py."
-        )
     raw = message.content[0].text.strip()
     # por si el modelo envuelve el JSON en ```json ... ```
     if raw.startswith("```"):
@@ -95,4 +81,42 @@ def summarize(fetch_results):
         raw = raw.split("\n", 1)[1] if "\n" in raw else raw
         if raw.lower().startswith("json"):
             raw = raw.split("\n", 1)[1]
-    return json.loads(raw)
+    resultado = json.loads(raw)
+    return _sanear(resultado)
+
+
+REQUIRED_KEYS = ("titulo", "url", "medio", "sesgo", "resumen")
+# alias por si el modelo nombra el campo distinto (drift de esquema)
+ALIASES = {"resumen": ["texto", "contenido", "descripcion", "summary"]}
+
+
+def _sanear(resultado):
+    """Corrige o descarta notas que no cumplen el esquema esperado, en vez de
+    dejar que el crash aparezca recién en el render del HTML. Loguea cada caso
+    para poder ver en la corrida de GitHub Actions qué devolvió mal el modelo."""
+    secciones_ok = []
+    for seccion in resultado.get("secciones", []):
+        notas_ok = []
+        for nota in seccion.get("notas", []):
+            if not isinstance(nota, dict):
+                print(f"[summarize] nota descartada (no es dict) en eje '{seccion.get('eje')}': {nota!r}")
+                continue
+            for key, alias_list in ALIASES.items():
+                if key not in nota:
+                    for alias in alias_list:
+                        if alias in nota:
+                            nota[key] = nota.pop(alias)
+                            break
+            faltantes = [k for k in REQUIRED_KEYS if not nota.get(k)]
+            if faltantes:
+                print(f"[summarize] nota descartada (faltan {faltantes}) en eje "
+                      f"'{seccion.get('eje')}': {nota.get('titulo', '(sin título)')!r}")
+                continue
+            notas_ok.append(nota)
+        if notas_ok:
+            seccion["notas"] = notas_ok
+            secciones_ok.append(seccion)
+        else:
+            print(f"[summarize] eje '{seccion.get('eje')}' sin notas válidas, se omite")
+    resultado["secciones"] = secciones_ok
+    return resultado

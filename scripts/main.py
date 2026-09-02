@@ -1,110 +1,122 @@
 """
-Orquestador de RESUMEN INTERNACIONAL.
-
-Uso: python main.py [--incluir-analistas]
-
---incluir-analistas fuerza el chequeo de las fuentes-analista de cadencia
-semanal (Mearsheimer, Macgregor, Reisner) aunque no sea el día que toca.
-El workflow de GitHub Actions ya decide esto automáticamente los lunes.
+Una sola llamada a la API de Claude con todo el material ya recolectado.
+Esto es lo que mantiene el costo bajo: el modelo no busca ni navega,
+solo lee texto ya filtrado y lo redacta/agrupa.
 """
-import sys
 import os
-import datetime
 import json
-from jinja2 import Environment, FileSystemLoader
-from weasyprint import HTML
+from anthropic import Anthropic
+from sources import EJES, REGLA_RELEVANCIA, REGLA_ANTI_CITA
 
-sys.path.insert(0, os.path.dirname(__file__))
-from sources import SOURCES, EJES
-from fetch import fetch_all
-from summarize import summarize
+MODEL = "claude-haiku-4-5-20251001"
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DOCS_DIR = os.path.join(BASE_DIR, "docs")
+SYSTEM_PROMPT = f"""Sos el editor de "RESUMEN INTERNACIONAL", informe diario de relaciones
+internacionales para Ricardo Narvaez, funcionario de una fiscalía federal argentina.
+
+Ejes temáticos (en este orden de aparición): {", ".join(EJES)}, y otros ejes de
+trascendencia comparable que surjan del material.
+
+{REGLA_RELEVANCIA}
+
+{REGLA_ANTI_CITA}
+
+FORMATO DE SALIDA: JSON estricto, sin texto fuera del JSON, con esta forma exacta:
+{{
+  "secciones": [
+    {{
+      "eje": "Ucrania",
+      "notas": [
+        {{
+          "titulo": "string",
+          "url": "string",
+          "medio": "string (nombre del medio o analista)",
+          "sesgo": "string (etiqueta de sesgo, te la doy junto con cada fuente)",
+          "resumen": "string, 1-3 párrafos objetivos, sin adoptar el framing de la fuente"
+        }}
+      ]
+    }}
+  ]
+}}
+
+Si una fuente es estatal o tiene alineamiento geopolítico declarado, el resumen debe
+mantenerse descriptivo (qué dice la fuente) sin adoptar su marco como si fuera hecho
+establecido. No agregues secciones vacías. No inventes notas: usá solo el material
+que te paso a continuación."""
 
 
-MESES_ES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio",
-            "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+def build_user_content(fetch_results):
+    """Arma el bloque de material crudo para el prompt, con la etiqueta de sesgo
+    de cada fuente ya incluida (no depende de que el modelo la sepa de memoria)."""
+    blocks = []
+    for name, data in fetch_results.items():
+        if not data["items"]:
+            continue
+        bias = data["source"]["bias"]
+        lines = [f"### FUENTE: {name} | SESGO: {bias} | método de acceso: {data['method']}"]
+        for it in data["items"]:
+            lines.append(f"- Título: {it['title']}")
+            lines.append(f"  URL: {it['link']}")
+            if it.get("published"):
+                lines.append(f"  Fecha: {it['published']}")
+            if it.get("summary"):
+                lines.append(f"  Extracto: {it['summary']}")
+        blocks.append("\n".join(lines))
+    return "\n\n".join(blocks)
 
 
-def fecha_es(d):
-    return f"{d.day} de {MESES_ES[d.month - 1]} de {d.year}"
+def summarize(fetch_results):
+    client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+    user_content = build_user_content(fetch_results)
 
-
-def ordenar_secciones(secciones):
-    """Reordena por EJES sin confiar en que el modelo respete el orden pedido
-    en el prompt. Ejes no listados (temas nuevos que surgen del día) quedan
-    al final, en el orden en que el modelo los entregó."""
-    orden = {eje: i for i, eje in enumerate(EJES)}
-    return sorted(secciones, key=lambda s: orden.get(s["eje"], len(EJES)))
-
-
-def main():
-    incluir_analistas = (
-        "--incluir-analistas" in sys.argv
-        or os.environ.get("INCLUIR_ANALISTAS", "false").lower() == "true"
-        or datetime.date.today().weekday() == 0  # lunes
+    message = client.messages.create(
+        model=MODEL,
+        max_tokens=8000,
+        system=SYSTEM_PROMPT,
+        messages=[{"role": "user", "content": user_content}],
     )
+    raw = message.content[0].text.strip()
+    # por si el modelo envuelve el JSON en ```json ... ```
+    if raw.startswith("```"):
+        raw = raw.strip("`")
+        raw = raw.split("\n", 1)[1] if "\n" in raw else raw
+        if raw.lower().startswith("json"):
+            raw = raw.split("\n", 1)[1]
+    resultado = json.loads(raw)
+    return _sanear(resultado)
 
-    activas = [
-        s for s in SOURCES
-        if s["tier"] == "diario" or (s["tier"] == "semanal" and incluir_analistas)
-    ]
-    print(f"Corriendo {len(activas)} fuentes "
-          f"({'incluye' if incluir_analistas else 'sin'} analistas personales)...")
 
-    resultados = fetch_all(activas, window_hours=48)
+REQUIRED_KEYS = ("titulo", "url", "medio", "sesgo", "resumen")
+# alias por si el modelo nombra el campo distinto (drift de esquema)
+ALIASES = {"resumen": ["texto", "contenido", "descripcion", "summary"]}
 
-    estado_fuentes = []
-    for name, data in resultados.items():
-        if data["method"]:
-            estado, clase = f"Cubierta ({data['method']})", "estado-cubierta"
+
+def _sanear(resultado):
+    """Corrige o descarta notas que no cumplen el esquema esperado, en vez de
+    dejar que el crash aparezca recién en el render del HTML. Loguea cada caso
+    para poder ver en la corrida de GitHub Actions qué devolvió mal el modelo."""
+    secciones_ok = []
+    for seccion in resultado.get("secciones", []):
+        notas_ok = []
+        for nota in seccion.get("notas", []):
+            if not isinstance(nota, dict):
+                print(f"[summarize] nota descartada (no es dict) en eje '{seccion.get('eje')}': {nota!r}")
+                continue
+            for key, alias_list in ALIASES.items():
+                if key not in nota:
+                    for alias in alias_list:
+                        if alias in nota:
+                            nota[key] = nota.pop(alias)
+                            break
+            faltantes = [k for k in REQUIRED_KEYS if not nota.get(k)]
+            if faltantes:
+                print(f"[summarize] nota descartada (faltan {faltantes}) en eje "
+                      f"'{seccion.get('eje')}': {nota.get('titulo', '(sin título)')!r}")
+                continue
+            notas_ok.append(nota)
+        if notas_ok:
+            seccion["notas"] = notas_ok
+            secciones_ok.append(seccion)
         else:
-            estado, clase = "No disponible — los 3 métodos fallaron", "estado-no"
-        estado_fuentes.append({
-            "nombre": name,
-            "metodo": data["method"],
-            "estado": estado,
-            "clase": clase,
-            "log": data["log"],
-        })
-
-    print("Resumiendo con Claude (1 llamada)...")
-    resultado_modelo = summarize(resultados)
-    secciones = ordenar_secciones(resultado_modelo["secciones"])
-
-    fecha = fecha_es(datetime.date.today())
-
-    env = Environment(loader=FileSystemLoader(os.path.join(BASE_DIR, "templates")))
-    template = env.get_template("report.html")
-    html_out = template.render(
-        fecha=fecha,
-        secciones=secciones,
-        estado_fuentes=estado_fuentes,
-    )
-
-    os.makedirs(DOCS_DIR, exist_ok=True)
-    slug = datetime.date.today().isoformat()
-
-    html_path = os.path.join(DOCS_DIR, f"resumen_{slug}.html")
-    with open(html_path, "w", encoding="utf-8") as f:
-        f.write(html_out)
-
-    pdf_path = os.path.join(DOCS_DIR, f"resumen_{slug}.pdf")
-    HTML(string=html_out, base_url=BASE_DIR).write_pdf(pdf_path)
-
-    # "último informe" siempre con el mismo nombre, para el link fijo
-    with open(os.path.join(DOCS_DIR, "index.html"), "w", encoding="utf-8") as f:
-        f.write(html_out)
-    HTML(string=html_out, base_url=BASE_DIR).write_pdf(os.path.join(DOCS_DIR, "ultimo.pdf"))
-
-    # log de la corrida, útil para depurar fuentes rotas de verdad
-    with open(os.path.join(DOCS_DIR, f"log_{slug}.json"), "w", encoding="utf-8") as f:
-        json.dump(estado_fuentes, f, ensure_ascii=False, indent=2)
-
-    print(f"Listo: {html_path}")
-    print(f"Listo: {pdf_path}")
-
-
-if __name__ == "__main__":
-    main()
+            print(f"[summarize] eje '{seccion.get('eje')}' sin notas válidas, se omite")
+    resultado["secciones"] = secciones_ok
+    return resultado

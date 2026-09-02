@@ -84,6 +84,7 @@
   /* ---------- Secciones ---------- */
   .seccion {
     margin-top: 0.9cm;
+    page-break-inside: avoid;
   }
   .seccion h2 {
     font-family: 'Source Serif 4', serif;
@@ -193,7 +194,7 @@
     <div class="nota">
       <h3><a href="{{ nota.url }}">{{ nota.titulo }}</a></h3>
       <div class="byline">{{ nota.medio }} · <span class="sesgo">Sesgo: {{ nota.sesgo }}</span></div>
-      {% for parrafo in nota.resumen.split('\n') if parrafo.strip() %}
+      {% for parrafo in nota.get('resumen', '').split('\n') if parrafo.strip() %}
       {% if ns.primera_nota and loop.first %}
       <p class="capitular"><span class="cap-letter">{{ parrafo[0] }}</span>{{ parrafo[1:] }}</p>
       {% else %}
